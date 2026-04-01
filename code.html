@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrazilAI | Automacao e Software Inteligente</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FFA500",
+            surface: "#131313",
+            surface2: "#1b1b1b",
+            surface3: "#242424",
+            text: "#e7e2dc",
+            muted: "#a5a09a",
+            line: "#333333"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Inter", "sans-serif"]
+          },
+          boxShadow: {
+            glow: "0 20px 40px rgba(255,165,0,.16)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { background: #050505; }
+    body {
+      background: transparent;
+      color:#e7e2dc;
+    }
+    .site-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top center, rgba(255,165,0,.18), transparent 32%),
+        linear-gradient(180deg, rgba(5,5,5,.48), rgba(5,5,5,.82));
+    }
+    .site-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6,6,6,.22), rgba(6,6,6,.56)),
+        radial-gradient(circle at center, transparent 38%, rgba(0,0,0,.28) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .site-bg video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      filter: saturate(.95) brightness(.7);
+    }
+    .glass-nav { background: rgba(14,14,14,.72); backdrop-filter: blur(18px); }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top center, rgba(255,165,0,.12), transparent 30%),
+        linear-gradient(180deg, rgba(19,19,19,.34), rgba(19,19,19,.72));
+    }
+    .grid-glow {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
+        radial-gradient(circle at top left, rgba(255,165,0,.08), transparent 35%);
+    }
+    .divider-soft { border-color: rgba(255,255,255,.07); }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display:flex;
+      width:max-content;
+      animation: marquee 30s linear infinite;
+    }
+  </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-black">
+  <div class="site-bg" aria-hidden="true">
+    <video autoplay loop muted playsinline preload="auto">
+      <source src="assets/background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <nav class="fixed inset-x-0 top-5 z-50 mx-auto flex w-[92%] max-w-6xl items-center justify-between rounded-full px-6 py-3 shadow-glow glass-nav">
+    <div class="font-headline text-lg font-bold tracking-tight text-white">BrazilAI</div>
+    <div class="hidden items-center gap-7 md:flex">
+      <a class="text-sm font-medium text-white" href="#cases">Case Studies</a>
+      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#services">Services</a>
+      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#about">About</a>
+      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#contact">Contact</a>
+    </div>
+    <a class="rounded-full bg-primary px-5 py-2.5 font-headline text-sm font-bold text-black transition hover:opacity-90" href="#contact">Get in Touch</a>
+  </nav>
+
+  <header class="hero-bg relative flex min-h-screen items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,165,0,.08),transparent_22%)]"></div>
+    <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <span class="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
+        Inteligencia que escala
+      </span>
+      <h1 class="mb-6 font-headline text-5xl font-extrabold leading-[0.92] tracking-[-0.06em] text-white md:text-8xl">
+        Elimine o Caos.<br>
+        <span class="text-primary">Automatize</span> o Futuro.
+      </h1>
+      <p class="mx-auto mb-10 max-w-2xl text-base leading-8 text-muted md:text-lg">
+        Transformamos gargalos operacionais em vantagens competitivas atraves de software sob medida e automacao inteligente conduzida por IA.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
+        <a class="rounded-full bg-primary px-8 py-4 font-headline text-sm font-bold text-black shadow-glow transition hover:scale-[1.02]" href="#contact">Comecar transformacao</a>
+        <a class="rounded-full border border-white/15 px-8 py-4 font-headline text-sm font-bold text-white transition hover:bg-white/5" href="#cases">Ver portfolio</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="overflow-hidden border-y divider-soft bg-black/45 py-7 backdrop-blur-sm">
+    <div class="marquee-track gap-12 text-xs font-bold uppercase tracking-[0.28em] text-zinc-600 md:text-sm">
+      <span>Moderniz</span><span>Logisys</span><span>Vitality</span><span>Medispa</span><span>Quantum</span><span>Elevate</span><span>Forge</span>
+      <span>Moderniz</span><span>Logisys</span><span>Vitality</span><span>Medispa</span><span>Quantum</span><span>Elevate</span><span>Forge</span>
+    </div>
+  </section>
+
+  <section id="cases" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
+    <div class="mx-auto max-w-6xl space-y-24">
+      <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="grid-glow min-h-[260px] rounded-3xl border border-white/6"></div>
+        <div>
+          <span class="mb-4 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Clinicas Esteticas</span>
+          <h2 class="mb-5 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
+            Reducao de 80% no tempo de agendamento manual.
+          </h2>
+          <p class="mb-6 max-w-lg text-base leading-8 text-muted">
+            Implementamos um sistema de triagem inteligente via WhatsApp que qualifica leads e agenda procedimentos sem intervencao humana.
+          </p>
+          <a class="font-headline text-sm font-bold text-primary" href="#contact">Ver projeto +</a>
+        </div>
+      </article>
+
+      <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+        <div class="order-2 md:order-1">
+          <span class="mb-4 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Logistica E-commerce</span>
+          <h2 class="mb-5 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
+            Automacao de fluxo de pedidos e estoque real-time.
+          </h2>
+          <p class="mb-6 max-w-lg text-base leading-8 text-muted">
+            Conectamos multiplos marketplaces a um core centralizado, eliminando erros de expedicao e faturamento duplicado.
+          </p>
+          <a class="font-headline text-sm font-bold text-primary" href="#contact">Ver projeto +</a>
+        </div>
+        <div class="order-1 overflow-hidden rounded-3xl border border-white/6 md:order-2">
+          <img alt="Dashboard logistico" class="h-[260px] w-full object-cover" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="services" class="bg-black/44 px-6 py-24 backdrop-blur-[2px] md:px-12">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-14">
+        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Services</span>
+        <h2 class="font-headline text-3xl font-bold tracking-[-0.04em] text-white md:text-5xl">Solucoes que escalam seu negocio</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
+          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
+          <h3 class="mb-4 font-headline text-xl font-bold text-white">Automacao de Workflow</h3>
+          <p class="text-sm leading-7 text-muted">
+            Mapeamos seus processos manuais e os transformamos em fluxos digitais autonomos e livres de erro humano.
+          </p>
+        </article>
+        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
+          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
+          <h3 class="mb-4 font-headline text-xl font-bold text-white">Software Sob Medida</h3>
+          <p class="text-sm leading-7 text-muted">
+            Desenvolvimento full-stack focado em resolver problemas especificos onde ferramentas prontas falham.
+          </p>
+        </article>
+        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
+          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
+          <h3 class="mb-4 font-headline text-xl font-bold text-white">IA e Analise de Dados</h3>
+          <p class="text-sm leading-7 text-muted">
+            Extraia inteligencia real do seu historico de dados para prever demandas e otimizar a tomada de decisao.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Nossa Missao</span>
+        <h2 class="mb-6 max-w-xl font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
+          Nascidos para libertar talentos humanos da repeticao.
+        </h2>
+        <p class="mb-4 max-w-xl text-base leading-8 text-muted">
+          A BrazilAI foi fundada por Davi com um proposito claro: empresas brasileiras perdem uma enorme parcela da produtividade em tarefas que poderiam ser automatizadas.
+        </p>
+        <p class="max-w-xl text-base leading-8 text-muted">
+          Nossa abordagem nao e apenas tecnologica, e estrategica. Olhamos para o negocio, identificamos o gargalo e construimos a ponte necessaria para o proximo nivel.
+        </p>
+      </div>
+      <div class="relative overflow-hidden rounded-[2rem] border border-white/8 bg-black/44 backdrop-blur-sm">
+        <img alt="Founder portrait" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80">
+        <div class="absolute bottom-5 left-5 rounded-2xl bg-black/55 px-5 py-4 backdrop-blur">
+          <p class="font-headline text-sm font-bold text-white">Davi</p>
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Founder & CTO</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-black/44 px-6 py-24 backdrop-blur-[2px] md:px-12">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-14 text-center font-headline text-3xl font-bold tracking-[-0.04em] text-white md:text-5xl">
+        O que dizem nossos parceiros
+      </h2>
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">RM</div>
+            <div>
+              <p class="text-sm font-bold text-white">Ricardo Mendes</p>
+              <p class="text-[11px] text-zinc-500">14:20</p>
+            </div>
+          </div>
+          <p class="mb-4 text-sm leading-7 text-text">
+            "A BrazilAI mudou completamente o jogo aqui na clinica. Nao temos mais furos na agenda e os clientes adoram o atendimento automatico."
+          </p>
+          <div class="flex gap-2 text-[11px] text-muted">
+            <span class="rounded-full bg-white/5 px-3 py-1">impacto real</span>
+            <span class="rounded-full bg-white/5 px-3 py-1">agenda cheia</span>
+          </div>
+        </article>
+        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">AS</div>
+            <div>
+              <p class="text-sm font-bold text-white">Ana Silva</p>
+              <p class="text-[11px] text-zinc-500">10:05</p>
+            </div>
+          </div>
+          <p class="mb-4 text-sm leading-7 text-text">
+            "O software de logistica que o Davi entregou economizou cerca de 15 horas semanais da minha equipe. Valeu cada centavo."
+          </p>
+          <div class="flex gap-2 text-[11px] text-muted">
+            <span class="rounded-full bg-white/5 px-3 py-1">menos erros</span>
+            <span class="rounded-full bg-white/5 px-3 py-1">mais controle</span>
+          </div>
+        </article>
+        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
+          <div class="mb-4 flex items-center gap-3">
+            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">FC</div>
+            <div>
+              <p class="text-sm font-bold text-white">Fernanda Costa</p>
+              <p class="text-[11px] text-zinc-500">18:42</p>
+            </div>
+          </div>
+          <p class="mb-4 text-sm leading-7 text-text">
+            "Eles entenderam nosso gargalo comercial em poucos dias e desenharam uma operacao muito mais inteligente do que a que imaginavamos."
+          </p>
+          <div class="flex gap-2 text-[11px] text-muted">
+            <span class="rounded-full bg-white/5 px-3 py-1">visao estrategica</span>
+            <span class="rounded-full bg-white/5 px-3 py-1">execucao</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
+    <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Vamos conversar</span>
+        <h2 class="mb-6 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
+          Vamos resolver seu problema?
+        </h2>
+        <p class="mb-8 max-w-md text-base leading-8 text-muted">
+          Se sua empresa esta perdendo tempo, margem ou oportunidades por causa de processos manuais, a gente pode desenhar a proxima versao da operacao com voce.
+        </p>
+        <div class="space-y-3 text-sm text-muted">
+          <p>hello@brazilai.studio</p>
+          <p>+55 11 99999-9999</p>
+        </div>
+      </div>
+
+      <form class="rounded-[2rem] border border-white/6 bg-black/44 p-6 backdrop-blur-sm md:p-8">
+        <div class="grid gap-4 md:grid-cols-2">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Nome" type="text">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Email" type="email">
+        </div>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Empresa" type="text">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Telefone" type="text">
+        </div>
+        <textarea class="mt-4 min-h-[140px] w-full rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Descreva o desafio da sua operacao."></textarea>
+        <button class="mt-5 w-full rounded-full bg-primary px-6 py-3.5 font-headline text-sm font-bold text-black transition hover:opacity-90" type="button">
+          Enviar informacoes
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t divider-soft bg-black/60 px-6 py-8 backdrop-blur-sm md:px-12">
+    <div class="mx-auto flex max-w-6xl flex-col gap-3 text-xs uppercase tracking-[0.18em] text-zinc-500 md:flex-row md:items-center md:justify-between">
+      <span>BrazilAI</span>
+      <span>Case Studies</span>
+      <span>Services</span>
+      <span>About</span>
+      <span>Contact</span>
+    </div>
+  </footer>
+</body>
+</html>
