@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrazilAI | Automacao e Software Inteligente</title>
+  <title>Atlas | Automatizando Negócios</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <script>
@@ -36,6 +36,7 @@
     body {
       background: transparent;
       color:#e7e2dc;
+      scroll-behavior: smooth;
     }
     .site-bg {
       position: fixed;
@@ -65,10 +66,21 @@
       width: auto;
       height: auto;
       object-fit: cover;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) rotate(90deg);
       filter: saturate(.95) brightness(.7);
     }
-    .glass-nav { background: rgba(14,14,14,.72); backdrop-filter: blur(18px); }
+/* 
+    .site-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%) rotate(90deg) scale(1.78);
+  filter: saturate(.95) brightness(.7);
+} */
+    .glass-nav { background: rgba(46, 46, 46, 0.479); backdrop-filter: blur(20px); }
     .hero-bg {
       background:
         radial-gradient(circle at top center, rgba(255,165,0,.12), transparent 30%),
@@ -300,20 +312,49 @@
         </div>
       </div>
 
-      <form class="rounded-[2rem] border border-white/6 bg-black/44 p-6 backdrop-blur-sm md:p-8">
+      <form class="rounded-[2rem] border border-white/6 bg-black/44 p-6 backdrop-blur-sm md:p-8" id="contactForm" onsubmit="sendWhatsApp(event)">
         <div class="grid gap-4 md:grid-cols-2">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Nome" type="text">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Email" type="email">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Nome" type="text" name="nome" required>
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Email" type="email" name="email" required>
         </div>
         <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Empresa" type="text">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Telefone" type="text">
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Empresa" type="text" name="empresa" required>
+          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Telefone" type="text" name="telefone" required>
         </div>
-        <textarea class="mt-4 min-h-[140px] w-full rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Descreva o desafio da sua operacao."></textarea>
-        <button class="mt-5 w-full rounded-full bg-primary px-6 py-3.5 font-headline text-sm font-bold text-black transition hover:opacity-90" type="button">
+        <textarea class="mt-4 min-h-[140px] w-full rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Descreva o desafio da sua operacao." name="mensagem" required></textarea>
+        <button class="mt-5 w-full rounded-full bg-primary px-6 py-3.5 font-headline text-sm font-bold text-black transition hover:opacity-90" type="submit">
           Enviar informacoes
         </button>
       </form>
+      
+      <script>
+        function sendWhatsApp(event) {
+          event.preventDefault();
+          
+          const form = document.getElementById('contactForm');
+          const formData = new FormData(form);
+          
+          const nome = formData.get('nome');
+          const email = formData.get('email');
+          const empresa = formData.get('empresa');
+          const telefone = formData.get('telefone');
+          const mensagem = formData.get('mensagem');
+          
+          const texto = `*Novo Contato - BrazilAI*\n\n` +
+            `*Nome:* ${nome}\n` +
+            `*Email:* ${email}\n` +
+            `*Empresa:* ${empresa}\n` +
+            `*Telefone:* ${telefone}\n` +
+            `*Desafio:* ${mensagem}`;
+          
+          const numeroWhatsApp = '12991015266';
+          const urlEncoded = encodeURIComponent(texto);
+          const whatsappUrl = `https://wa.me/${numeroWhatsApp}?text=${urlEncoded}`;
+          
+          window.open(whatsappUrl, '_blank');
+          form.reset();
+        }
+      </script>
     </div>
   </section>
 
