@@ -1,371 +1,341 @@
 <!DOCTYPE html>
-<html class="dark" lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlas | Automatizando Negócios</title>
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#FFA500",
-            surface: "#131313",
-            surface2: "#1b1b1b",
-            surface3: "#242424",
-            text: "#e7e2dc",
-            muted: "#a5a09a",
-            line: "#333333"
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ATLAS | Inteligência Artificial e Automação de Processos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#812900",
+                    "on-surface": "#e2e2e2",
+                    "on-background": "#e2e2e2",
+                    "on-secondary": "#2f3131",
+                    "secondary": "#c7c6c6",
+                    "on-tertiary": "#680200",
+                    "on-tertiary-container": "#5b0100",
+                    "surface-tint": "#ffb59b",
+                    "on-secondary-fixed-variant": "#464747",
+                    "tertiary-fixed": "#ffdad4",
+                    "primary": "#ffb59b",
+                    "inverse-surface": "#e2e2e2",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container-highest": "#353535",
+                    "surface-container-low": "#1b1b1b",
+                    "on-primary": "#5b1a00",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "on-surface-variant": "#e3bfb2",
+                    "on-tertiary-fixed-variant": "#930300",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed": "#380d00",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-primary-container": "#501600",
+                    "inverse-on-surface": "#303030",
+                    "inverse-primary": "#a93800",
+                    "tertiary-container": "#ff553f",
+                    "background": "#131313",
+                    "tertiary": "#ffb4a8",
+                    "surface-variant": "#353535",
+                    "error": "#ffb4ab",
+                    "primary-container": "#fa5c15",
+                    "on-tertiary-fixed": "#410100",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed-dim": "#ffb59b",
+                    "secondary-fixed": "#e3e2e2",
+                    "error-container": "#93000a",
+                    "outline-variant": "#5b4138",
+                    "tertiary-fixed-dim": "#ffb4a8",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#b8b8b8",
+                    "outline": "#aa8a7f",
+                    "primary-fixed": "#ffdbcf",
+                    "secondary-container": "#484949",
+                    "surface-container": "#1f1f1f",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "surface": "#000000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
           },
-          fontFamily: {
-            headline: ["Plus Jakarta Sans", "sans-serif"],
-            body: ["Inter", "sans-serif"]
-          },
-          boxShadow: {
-            glow: "0 20px 40px rgba(255,165,0,.16)"
-          }
-        }
+        },
       }
-    };
-  </script>
-  <style>
-    html { background: #050505; }
-    body {
-      background: transparent;
-      color:#e7e2dc;
-      scroll-behavior: smooth;
-    }
-    .site-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at top center, rgba(255,165,0,.18), transparent 32%),
-        linear-gradient(180deg, rgba(5,5,5,.48), rgba(5,5,5,.82));
-    }
-    .site-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(6,6,6,.22), rgba(6,6,6,.56)),
-        radial-gradient(circle at center, transparent 38%, rgba(0,0,0,.28) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .site-bg video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: cover;
-      transform: translate(-50%, -50%) rotate(90deg);
-      filter: saturate(.95) brightness(.7);
-    }
-/* 
-    .site-bg video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  transform: translate(-50%, -50%) rotate(90deg) scale(1.78);
-  filter: saturate(.95) brightness(.7);
-} */
-    .glass-nav { background: rgba(46, 46, 46, 0.479); backdrop-filter: blur(20px); }
-    .hero-bg {
-      background:
-        radial-gradient(circle at top center, rgba(255,165,0,.12), transparent 30%),
-        linear-gradient(180deg, rgba(19,19,19,.34), rgba(19,19,19,.72));
-    }
-    .grid-glow {
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01)),
-        radial-gradient(circle at top left, rgba(255,165,0,.08), transparent 35%);
-    }
-    .divider-soft { border-color: rgba(255,255,255,.07); }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-track {
-      display:flex;
-      width:max-content;
-      animation: marquee 30s linear infinite;
-    }
-  </style>
-</head>
-<body class="font-body selection:bg-primary selection:text-black">
-  <div class="site-bg" aria-hidden="true">
-    <video autoplay loop muted playsinline preload="auto">
-      <source src="assets/background.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <nav class="fixed inset-x-0 top-5 z-50 mx-auto flex w-[92%] max-w-6xl items-center justify-between rounded-full px-6 py-3 shadow-glow glass-nav">
-    <div class="font-headline text-lg font-bold tracking-tight text-white">BrazilAI</div>
-    <div class="hidden items-center gap-7 md:flex">
-      <a class="text-sm font-medium text-white" href="#cases">Case Studies</a>
-      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#services">Services</a>
-      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#about">About</a>
-      <a class="text-sm font-medium text-muted transition hover:text-primary" href="#contact">Contact</a>
-    </div>
-    <a class="rounded-full bg-primary px-5 py-2.5 font-headline text-sm font-bold text-black transition hover:opacity-90" href="#contact">Get in Touch</a>
-  </nav>
-
-  <header class="hero-bg relative flex min-h-screen items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,165,0,.08),transparent_22%)]"></div>
-    <div class="relative z-10 mx-auto max-w-5xl px-6 text-center">
-      <span class="mb-6 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 font-headline text-[11px] font-bold uppercase tracking-[0.22em] text-primary">
-        Inteligencia que escala
-      </span>
-      <h1 class="mb-6 font-headline text-5xl font-extrabold leading-[0.92] tracking-[-0.06em] text-white md:text-8xl">
-        Elimine o Caos.<br>
-        <span class="text-primary">Automatize</span> o Futuro.
-      </h1>
-      <p class="mx-auto mb-10 max-w-2xl text-base leading-8 text-muted md:text-lg">
-        Transformamos gargalos operacionais em vantagens competitivas atraves de software sob medida e automacao inteligente conduzida por IA.
-      </p>
-      <div class="flex flex-col items-center justify-center gap-4 md:flex-row">
-        <a class="rounded-full bg-primary px-8 py-4 font-headline text-sm font-bold text-black shadow-glow transition hover:scale-[1.02]" href="#contact">Comecar transformacao</a>
-        <a class="rounded-full border border-white/15 px-8 py-4 font-headline text-sm font-bold text-white transition hover:bg-white/5" href="#cases">Ver portfolio</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="overflow-hidden border-y divider-soft bg-black/45 py-7 backdrop-blur-sm">
-    <div class="marquee-track gap-12 text-xs font-bold uppercase tracking-[0.28em] text-zinc-600 md:text-sm">
-      <span>Moderniz</span><span>Logisys</span><span>Vitality</span><span>Medispa</span><span>Quantum</span><span>Elevate</span><span>Forge</span>
-      <span>Moderniz</span><span>Logisys</span><span>Vitality</span><span>Medispa</span><span>Quantum</span><span>Elevate</span><span>Forge</span>
-    </div>
-  </section>
-
-  <section id="cases" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
-    <div class="mx-auto max-w-6xl space-y-24">
-      <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div class="grid-glow min-h-[260px] rounded-3xl border border-white/6"></div>
-        <div>
-          <span class="mb-4 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Clinicas Esteticas</span>
-          <h2 class="mb-5 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
-            Reducao de 80% no tempo de agendamento manual.
-          </h2>
-          <p class="mb-6 max-w-lg text-base leading-8 text-muted">
-            Implementamos um sistema de triagem inteligente via WhatsApp que qualifica leads e agenda procedimentos sem intervencao humana.
-          </p>
-          <a class="font-headline text-sm font-bold text-primary" href="#contact">Ver projeto +</a>
-        </div>
-      </article>
-
-      <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div class="order-2 md:order-1">
-          <span class="mb-4 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Logistica E-commerce</span>
-          <h2 class="mb-5 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
-            Automacao de fluxo de pedidos e estoque real-time.
-          </h2>
-          <p class="mb-6 max-w-lg text-base leading-8 text-muted">
-            Conectamos multiplos marketplaces a um core centralizado, eliminando erros de expedicao e faturamento duplicado.
-          </p>
-          <a class="font-headline text-sm font-bold text-primary" href="#contact">Ver projeto +</a>
-        </div>
-        <div class="order-1 overflow-hidden rounded-3xl border border-white/6 md:order-2">
-          <img alt="Dashboard logistico" class="h-[260px] w-full object-cover" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80">
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="services" class="bg-black/44 px-6 py-24 backdrop-blur-[2px] md:px-12">
-    <div class="mx-auto max-w-6xl">
-      <div class="mb-14">
-        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Services</span>
-        <h2 class="font-headline text-3xl font-bold tracking-[-0.04em] text-white md:text-5xl">Solucoes que escalam seu negocio</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
-          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
-          <h3 class="mb-4 font-headline text-xl font-bold text-white">Automacao de Workflow</h3>
-          <p class="text-sm leading-7 text-muted">
-            Mapeamos seus processos manuais e os transformamos em fluxos digitais autonomos e livres de erro humano.
-          </p>
-        </article>
-        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
-          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
-          <h3 class="mb-4 font-headline text-xl font-bold text-white">Software Sob Medida</h3>
-          <p class="text-sm leading-7 text-muted">
-            Desenvolvimento full-stack focado em resolver problemas especificos onde ferramentas prontas falham.
-          </p>
-        </article>
-        <article class="rounded-3xl border border-white/6 bg-black/42 p-8 backdrop-blur-sm">
-          <div class="mb-6 h-10 w-10 rounded-xl bg-primary/15"></div>
-          <h3 class="mb-4 font-headline text-xl font-bold text-white">IA e Analise de Dados</h3>
-          <p class="text-sm leading-7 text-muted">
-            Extraia inteligencia real do seu historico de dados para prever demandas e otimizar a tomada de decisao.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
-    <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-16">
-      <div>
-        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Nossa Missao</span>
-        <h2 class="mb-6 max-w-xl font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
-          Nascidos para libertar talentos humanos da repeticao.
-        </h2>
-        <p class="mb-4 max-w-xl text-base leading-8 text-muted">
-          A BrazilAI foi fundada por Davi com um proposito claro: empresas brasileiras perdem uma enorme parcela da produtividade em tarefas que poderiam ser automatizadas.
-        </p>
-        <p class="max-w-xl text-base leading-8 text-muted">
-          Nossa abordagem nao e apenas tecnologica, e estrategica. Olhamos para o negocio, identificamos o gargalo e construimos a ponte necessaria para o proximo nivel.
-        </p>
-      </div>
-      <div class="relative overflow-hidden rounded-[2rem] border border-white/8 bg-black/44 backdrop-blur-sm">
-        <img alt="Founder portrait" class="h-full w-full object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80">
-        <div class="absolute bottom-5 left-5 rounded-2xl bg-black/55 px-5 py-4 backdrop-blur">
-          <p class="font-headline text-sm font-bold text-white">Davi</p>
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-primary">Founder & CTO</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-black/44 px-6 py-24 backdrop-blur-[2px] md:px-12">
-    <div class="mx-auto max-w-6xl">
-      <h2 class="mb-14 text-center font-headline text-3xl font-bold tracking-[-0.04em] text-white md:text-5xl">
-        O que dizem nossos parceiros
-      </h2>
-      <div class="grid gap-5 md:grid-cols-3">
-        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
-          <div class="mb-4 flex items-center gap-3">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">RM</div>
-            <div>
-              <p class="text-sm font-bold text-white">Ricardo Mendes</p>
-              <p class="text-[11px] text-zinc-500">14:20</p>
-            </div>
-          </div>
-          <p class="mb-4 text-sm leading-7 text-text">
-            "A BrazilAI mudou completamente o jogo aqui na clinica. Nao temos mais furos na agenda e os clientes adoram o atendimento automatico."
-          </p>
-          <div class="flex gap-2 text-[11px] text-muted">
-            <span class="rounded-full bg-white/5 px-3 py-1">impacto real</span>
-            <span class="rounded-full bg-white/5 px-3 py-1">agenda cheia</span>
-          </div>
-        </article>
-        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
-          <div class="mb-4 flex items-center gap-3">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">AS</div>
-            <div>
-              <p class="text-sm font-bold text-white">Ana Silva</p>
-              <p class="text-[11px] text-zinc-500">10:05</p>
-            </div>
-          </div>
-          <p class="mb-4 text-sm leading-7 text-text">
-            "O software de logistica que o Davi entregou economizou cerca de 15 horas semanais da minha equipe. Valeu cada centavo."
-          </p>
-          <div class="flex gap-2 text-[11px] text-muted">
-            <span class="rounded-full bg-white/5 px-3 py-1">menos erros</span>
-            <span class="rounded-full bg-white/5 px-3 py-1">mais controle</span>
-          </div>
-        </article>
-        <article class="rounded-[1.8rem] border border-white/6 bg-black/46 p-5 backdrop-blur-sm">
-          <div class="mb-4 flex items-center gap-3">
-            <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-[11px] font-bold text-black">FC</div>
-            <div>
-              <p class="text-sm font-bold text-white">Fernanda Costa</p>
-              <p class="text-[11px] text-zinc-500">18:42</p>
-            </div>
-          </div>
-          <p class="mb-4 text-sm leading-7 text-text">
-            "Eles entenderam nosso gargalo comercial em poucos dias e desenharam uma operacao muito mais inteligente do que a que imaginavamos."
-          </p>
-          <div class="flex gap-2 text-[11px] text-muted">
-            <span class="rounded-full bg-white/5 px-3 py-1">visao estrategica</span>
-            <span class="rounded-full bg-white/5 px-3 py-1">execucao</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="bg-black/52 px-6 py-24 backdrop-blur-[2px] md:px-12">
-    <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-16">
-      <div>
-        <span class="mb-5 block font-headline text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Vamos conversar</span>
-        <h2 class="mb-6 max-w-md font-headline text-4xl font-bold leading-tight tracking-[-0.05em] text-white md:text-5xl">
-          Vamos resolver seu problema?
-        </h2>
-        <p class="mb-8 max-w-md text-base leading-8 text-muted">
-          Se sua empresa esta perdendo tempo, margem ou oportunidades por causa de processos manuais, a gente pode desenhar a proxima versao da operacao com voce.
-        </p>
-        <div class="space-y-3 text-sm text-muted">
-          <p>hello@brazilai.studio</p>
-          <p>+55 11 99999-9999</p>
-        </div>
-      </div>
-
-      <form class="rounded-[2rem] border border-white/6 bg-black/44 p-6 backdrop-blur-sm md:p-8" id="contactForm" onsubmit="sendWhatsApp(event)">
-        <div class="grid gap-4 md:grid-cols-2">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Nome" type="text" name="nome" required>
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Email" type="email" name="email" required>
-        </div>
-        <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Empresa" type="text" name="empresa" required>
-          <input class="rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Telefone" type="text" name="telefone" required>
-        </div>
-        <textarea class="mt-4 min-h-[140px] w-full rounded-2xl border border-white/8 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-zinc-500" placeholder="Descreva o desafio da sua operacao." name="mensagem" required></textarea>
-        <button class="mt-5 w-full rounded-full bg-primary px-6 py-3.5 font-headline text-sm font-bold text-black transition hover:opacity-90" type="submit">
-          Enviar informacoes
-        </button>
-      </form>
-      
-      <script>
-        function sendWhatsApp(event) {
-          event.preventDefault();
-          
-          const form = document.getElementById('contactForm');
-          const formData = new FormData(form);
-          
-          const nome = formData.get('nome');
-          const email = formData.get('email');
-          const empresa = formData.get('empresa');
-          const telefone = formData.get('telefone');
-          const mensagem = formData.get('mensagem');
-          
-          const texto = `*Novo Contato - BrazilAI*\n\n` +
-            `*Nome:* ${nome}\n` +
-            `*Email:* ${email}\n` +
-            `*Empresa:* ${empresa}\n` +
-            `*Telefone:* ${telefone}\n` +
-            `*Desafio:* ${mensagem}`;
-          
-          const numeroWhatsApp = '12991015266';
-          const urlEncoded = encodeURIComponent(texto);
-          const whatsappUrl = `https://wa.me/${numeroWhatsApp}?text=${urlEncoded}`;
-          
-          window.open(whatsappUrl, '_blank');
-          form.reset();
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #e2e2e2;
+            min-height: 100vh;
+            position: relative;
+            isolation: isolate;
         }
-      </script>
-    </div>
-  </section>
-
-  <footer class="border-t divider-soft bg-black/60 px-6 py-8 backdrop-blur-sm md:px-12">
-    <div class="mx-auto flex max-w-6xl flex-col gap-3 text-xs uppercase tracking-[0.18em] text-zinc-500 md:flex-row md:items-center md:justify-between">
-      <span>BrazilAI</span>
-      <span>Case Studies</span>
-      <span>Services</span>
-      <span>About</span>
-      <span>Contact</span>
-    </div>
-  </footer>
-</body>
-</html>
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -35vw;
+            background-image: url('./image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: rotate(-90deg) scale(1.00);
+            transform-origin: center;
+            opacity: 0.58;
+            z-index: -2;
+            pointer-events: none;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.76) 0%, rgba(0, 0, 0, 0.64) 100%),
+                radial-gradient(circle at center, rgba(232, 80, 2, 0.12) 0%, rgba(0, 0, 0, 0) 48%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .branding-gradient-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(193,8,1,0.15) 50%, rgba(241,96,1,0.1) 100%);
+        }
+        .text-branding-orange { color: #E85002; }
+        .bg-branding-orange { background-color: #E85002; }
+        .border-branding-orange { border-color: #E85002; }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.-inset-4{inset:-1rem}.inset-0{inset:0px}.bottom-8{bottom:2rem}.left-0{left:0px}.right-0{right:0px}.right-8{right:2rem}.top-0{top:0px}.z-0{z-index:0}.z-10{z-index:10}.z-50{z-index:50}.order-1{order:1}.order-2{order:2}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-video{aspect-ratio:16 / 9}.h-12{height:3rem}.h-16{height:4rem}.h-48{height:12rem}.h-full{height:100%}.min-h-\[1024px\]{min-height:1024px}.w-12{width:3rem}.w-48{width:12rem}.w-\[95\%\]{width:95%}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-7xl{max-width:80rem}.max-w-xl{max-width:36rem}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-20{gap:5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-8{gap:2rem}.space-y-40 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(10rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(10rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.whitespace-nowrap{white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:2rem}.border{border-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-\[\#E85002\]{--tw-border-opacity:1;border-color:rgb(232 80 2 / var(--tw-border-opacity, 1))}.border-\[\#E85002\]\/20{border-color:rgb(232 80 2 / 0.2)}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/20{border-color:rgb(255 255 255 / 0.2)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-black\/60{background-color:rgb(0 0 0 / 0.6)}.bg-surface-container-high{--tw-bg-opacity:1;background-color:rgb(42 42 42 / var(--tw-bg-opacity, 1))}.bg-surface-container-low{--tw-bg-opacity:1;background-color:rgb(27 27 27 / var(--tw-bg-opacity, 1))}.bg-surface-container-lowest{--tw-bg-opacity:1;background-color:rgb(14 14 14 / var(--tw-bg-opacity, 1))}.bg-white\/5{background-color:rgb(255 255 255 / 0.05)}.bg-\[radial-gradient\(circle_at_50\%_50\%\2c _rgba\(232\2c 80\2c 2\2c 0\.15\)_0\%\2c _transparent_50\%\)\]{background-image:radial-gradient(circle at 50% 50%, rgba(232,80,2,0.15) 0%, transparent 50%)}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-10{padding:2.5rem}.p-8{padding:2rem}.px-10{padding-left:2.5rem;padding-right:2.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-32{padding-top:8rem;padding-bottom:8rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:0.25rem}.pt-24{padding-top:6rem}.text-center{text-align:center}.font-body{font-family:Inter}.font-headline{font-family:Plus Jakarta Sans}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.tracking-tighter{letter-spacing:-0.05em}.tracking-widest{letter-spacing:0.1em}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-secondary{--tw-text-opacity:1;color:rgb(199 198 198 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.opacity-0{opacity:0}.opacity-20{opacity:0.2}.opacity-40{opacity:0.4}.shadow-\[0_8px_32px_rgba\(0\2c 0\2c 0\2c 0\.4\)\]{--tw-shadow:0 8px 32px rgba(0,0,0,0.4);--tw-shadow-colored:0 8px 32px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.blur-3xl{--tw-blur:blur(64px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-xl{--tw-backdrop-blur:blur(24px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.placeholder\:text-gray-600::placeholder{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-white\/10:hover{background-color:rgb(255 255 255 / 0.1)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:translate-x-2{--tw-translate-x:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 768px){.md\:order-1{order:1}.md\:order-2{order:2}.md\:flex{display:flex}.md\:h-64{height:16rem}.md\:w-64{width:16rem}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:text-left{text-align:left}.md\:text-5xl{font-size:3rem;line-height:1}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-8xl{font-size:6rem;line-height:1}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}</style></head>
+<body class="selection:bg-branding-orange selection:text-white" data-mode="connect">
+<!-- Section 1: Navbar (Shared Component Mapping) -->
+<nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 h-16 bg-black/60 backdrop-blur-xl rounded-full mt-6 mx-auto w-[95%] max-w-7xl shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+<div class="text-2xl font-extrabold tracking-tighter text-white">ATLAS</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-white font-bold border-b-2 border-[#E85002] pb-1 text-sm font-medium" href="#">Início</a>
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#servicos">Serviços</a>
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#automacao">IA Automação</a>
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#cases">Cases</a>
+<a class="text-gray-400 hover:text-white transition-colors text-sm font-medium" href="#blog">Blog</a>
+</div>
+<a class="bg-branding-orange text-white px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300 active:scale-95" href="#contato">Agendar Reunião</a>
+</nav>
+<!-- Section 2: Hero -->
+<header class="relative min-h-[1024px] flex flex-col items-center justify-center pt-24 px-6 overflow-hidden" data-stitch-vh="min-h-[1024px]===min-h-screen">
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(232,80,2,0.15)_0%,_transparent_50%)]"></div>
+</div>
+<div class="z-10 text-center max-w-5xl mx-auto flex flex-col items-center">
+<div class="mb-8 flex justify-center">
+<img alt="ATLAS" class="w-72 h-72 md:w-[32rem] md:h-[32rem] object-contain" data-alt="Futuristic geometric atlas logo animation with rotating orange core and dark metallic rings floating in a black void" src="https://lh3.googleusercontent.com/aida/ADBb0ugjl0XC-tE8aAtLW5ATiInFxFlm_brbzn87arbB53zcukENFF5Q5JokAUZp6QYaqGvN8Bjm6ET89apB_wRqQDDL3t41kWkhHbM2y66yRtgHxwMsA0rG2Xudz-I-hJdbStH9c5IMSZaB7AmzO_xUQpGws2oUii-BzqDIyGV4cfiLtf8zZw0zRTfSbHlGTiuyHLW9BUV4-Xs2juzwfZXxRS2GET2Ac95z9CNHWEm8e7Caqiy4Vh3jmEgHJfPcVffwzRSbr408WkfeXxM"/>
+</div>
+<h1 class="text-4xl md:text-7xl font-headline font-extrabold tracking-tighter text-branding-orange">Automatize o Futuro.</h1>
+</div>
+</header>
+<!-- Section 3: Marquee (Trust Indicators) -->
+<section class="py-12 bg-surface-container-lowest overflow-hidden">
+<div class="flex whitespace-nowrap gap-12 items-center opacity-40">
+<div class="flex gap-16 animate-marquee">
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Growth Partners</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Tech Solutions</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Data Flow Co</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Digital Scale</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Automation Inc</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Future AI Lab</span>
+</div>
+<div aria-hidden="true" class="flex gap-16 animate-marquee">
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Growth Partners</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Tech Solutions</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Data Flow Co</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Digital Scale</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Automation Inc</span>
+<span class="text-2xl font-headline font-bold text-white uppercase tracking-widest">Future AI Lab</span>
+</div>
+</div>
+</section>
+<!-- Section 4: Cases -->
+<section class="py-32 px-8 max-w-7xl mx-auto space-y-40" id="cases">
+<!-- Case 1 -->
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<span class="text-branding-orange font-bold uppercase tracking-widest text-sm mb-4 block">Setor Logístico</span>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold text-white mb-6">Redução de 40% no tempo de despacho</h2>
+<p class="text-secondary text-lg mb-8 leading-relaxed">Implementamos uma camada de IA preditiva para organizar a entrada de pedidos e automatizar a roteirização, eliminando erros manuais críticos.</p>
+<a class="text-branding-orange font-bold flex items-center gap-2 group" href="#">Ver projeto <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+<div class="order-1 md:order-2 branding-gradient-overlay p-1 rounded-lg border border-white/10">
+<img alt="Logística Inteligente" class="rounded-lg w-full aspect-video object-cover" data-alt="High-tech logistics warehouse interior with neon orange light accents and autonomous robotic sorting systems in a dark aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUHte6LBIw4SyRIl3BM6BSAl6wnF8lJd3ZymklFPecmz_CCA_ODOg4qDEb3KvyvykGCGa_oh9kf51vhRpq1fcTDjq3b5cF8B-7OM-Rc4aC3Th9zJJIWPGQ3W1rfW3Kt1Gw04YO0g1ULbNzV88HgcQCz98FMPtciif079KPKwMIN-GdSyByJ29vSCdk-DdMMtciEEpCV7QEGn6SvJ6Pk4TKKut-JNgSvE_lJBc8BTZi6OQcJWfQgLxts_9S4ytlN5k9szCD8I9OP4l7"/>
+</div>
+</div>
+<!-- Case 2 -->
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="branding-gradient-overlay p-1 rounded-lg border border-white/10">
+<img alt="Fintech Scale" class="rounded-lg w-full aspect-video object-cover" data-alt="Elegant glass office towers at night with orange data visualization lines flowing between them, representing financial security and speed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP7pv6u5FpMAbr5IUkv4iBBCx97PGzy2vDdFrGjZqUhqd1yL4Mn54inR9T8-OLEKaXLJFmcRk0P0dS9mc1mgkCtNVqY8mMm5ZhfWRkbl2L0AZRLALs-Ngsvs6o5Sv_xaV5vE7dj0VMVMPguIpBW8Ppx5xXou1bQbLMZcSy1IIILul2p1ChS_R40TwH3MBgcn3LJu3-hh5rlbkETYNuX2Tji6IGw7c5eEwAXhUx48J-5uV0dysB6bnPB-Du7drbxRxATL_rTw-o7TH_"/>
+</div>
+<div>
+<span class="text-branding-orange font-bold uppercase tracking-widest text-sm mb-4 block">Fintech de Elite</span>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold text-white mb-6">Escalabilidade Infinita com Onboarding 100% Digital</h2>
+<p class="text-secondary text-lg mb-8 leading-relaxed">Remoção completa de análise humana no processo de entrada de novos clientes, mantendo segurança máxima através de validação biométrica e IA.</p>
+<a class="text-branding-orange font-bold flex items-center gap-2 group" href="#">Ver projeto <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span></a>
+</div>
+</div>
+</section>
+<!-- Section 5: Services -->
+<section class="bg-surface-container-low py-32 px-8" id="servicos">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-center md:text-left">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white">Nossas Soluções</h2>
+<p class="text-secondary mt-4 max-w-xl">Arquitetura técnica para quem não aceita menos que a excelência.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="bg-surface-container-high p-10 rounded-lg border border-white/10 hover:border-branding-orange/50 transition-all group">
+<span class="material-symbols-outlined text-branding-orange text-5xl mb-8" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Automação de Workflow</h3>
+<p class="text-secondary leading-relaxed">Conectamos suas ferramentas favoritas para que seus dados fluam sem intervenção humana, 24 horas por dia.</p>
+</div>
+<!-- Service Card 2 -->
+<div class="bg-surface-container-high p-10 rounded-lg border border-white/10 hover:border-branding-orange/50 transition-all group">
+<span class="material-symbols-outlined text-branding-orange text-5xl mb-8" data-icon="neurology">neurology</span>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Implementação de IA</h3>
+<p class="text-secondary leading-relaxed">Infundimos inteligência em seus processos de atendimento, análise e criação de conteúdo para máxima eficiência.</p>
+</div>
+<!-- Service Card 3 -->
+<div class="bg-surface-container-high p-10 rounded-lg border border-white/10 hover:border-branding-orange/50 transition-all group">
+<span class="material-symbols-outlined text-branding-orange text-5xl mb-8" data-icon="architecture">architecture</span>
+<h3 class="text-2xl font-headline font-bold text-white mb-4">Arquitetura de Dados</h3>
+<p class="text-secondary leading-relaxed">Estruturamos seu ecossistema digital para garantir que as informações certas cheguem às pessoas certas, na hora certa.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: About -->
+<section class="py-32 px-8 max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white mb-8">Nascemos para Orquestrar a IA.</h2>
+<div class="space-y-6 text-secondary text-lg leading-relaxed">
+<p>A Atlas não é uma agência de tecnologia comum. Somos arquitetos dedicados a erradicar a ineficiência. Fundada por especialistas que viveram as dores do crescimento desordenado.</p>
+<p>Davi, nosso fundador, acredita que a automação não deve substituir o humano, mas libertá-lo da monotonia. Nossa missão é clara: construir as fundações digitais das empresas que dominarão a próxima década.</p>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-branding-orange/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Founder" class="rounded-lg w-full grayscale hover:grayscale-0 transition-all duration-500 border border-white/10" data-alt="Portrait of a young tech founder in a minimalist dark studio setting, looking confidently at the camera with warm orange ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc83lXI8GzuHdfS3r_efwpemFFTccAYoo3pu2pHFsRWHR62d6ns77Ig2sk56-J6pv0a3z3_1QYRwQ_8Od4ykn4Vg-iMXlcRbqKZOwzzmGFlxGh8_y9ZMREHjlOQpy5yNtZwG2sbHOZ-foIRa566z4GrxtUbg4E9qE-usYcVf7jmZQcP2FIQr851W20c3xfeBbgGhKEe6LkorfD7hJ1RccGF4OaecILoRpJeUiFsOcnjpSfPn0mvpvdBz1TntcY0bsoU8aRLO1b5n4S"/>
+<div class="absolute bottom-8 right-8 bg-branding-orange text-white px-6 py-4 rounded-lg font-bold">
+                    Davi — Founder &amp; CEO
+                </div>
+</div>
+</div>
+</section>
+<!-- Section 7: Testimonials -->
+<section class="py-32 px-8 bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-high p-8 rounded-2xl relative">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-branding-orange flex items-center justify-center font-bold text-white">RB</div>
+<div>
+<p class="text-white font-bold text-sm">Ricardo B.</p>
+<p class="text-xs text-secondary">CEO da TechFlow</p>
+</div>
+</div>
+<p class="text-white leading-relaxed italic">"A Atlas redefiniu o que pensávamos ser possível com automação. Em 3 meses, dobramos nossa capacidade operacional."</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#Escala</span>
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#Inovação</span>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-high p-8 rounded-2xl relative">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-branding-orange flex items-center justify-center font-bold text-white">AM</div>
+<div>
+<p class="text-white font-bold text-sm">Ana M.</p>
+<p class="text-xs text-secondary">CTO LogisLink</p>
+</div>
+</div>
+<p class="text-white leading-relaxed italic">"O nível técnico da equipe Atlas é incomparável. Eles não apenas entregam código, entregam inteligência estratégica."</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#Precisão</span>
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#Elite</span>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-high p-8 rounded-2xl relative">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-branding-orange flex items-center justify-center font-bold text-white">JL</div>
+<div>
+<p class="text-white font-bold text-sm">João L.</p>
+<p class="text-xs text-secondary">VP Growth Venture</p>
+</div>
+</div>
+<p class="text-white leading-relaxed italic">"Resolveram gargalos que estavam nos custando milhares de dólares por mês. Investimento obrigatório para qualquer Scale-up."</p>
+<div class="mt-6 flex gap-2">
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#ROI</span>
+<span class="px-3 py-1 bg-white/5 rounded-full text-[10px] uppercase text-secondary">#Eficiência</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Contact -->
+<section class="py-32 px-8" id="contato">
+<div class="max-w-3xl mx-auto text-center mb-16">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white mb-6">Vamos resolver seu problema?</h2>
+<p class="text-secondary text-lg">Seu próximo nível de escala começa com um diagnóstico.</p>
+</div>
+<div class="max-w-xl mx-auto bg-surface-container-low p-8 rounded-2xl border border-white/5">
+<form class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-secondary mb-2">Nome Completo</label>
+<input class="w-full bg-surface-container-high border-white/10 rounded-lg focus:ring-2 focus:ring-branding-orange focus:border-branding-orange text-white placeholder:text-gray-600 transition-all" placeholder="Como devemos te chamar?" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-secondary mb-2">E-mail Corporativo</label>
+<input class="w-full bg-surface-container-high border-white/10 rounded-lg focus:ring-2 focus:ring-branding-orange focus:border-branding-orange text-white placeholder:text-gray-600 transition-all" placeholder="exemplo@suaempresa.com" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-secondary mb-2">Qual seu maior gargalo hoje?</label>
+<textarea class="w-full bg-surface-container-high border-white/10 rounded-lg focus:ring-2 focus:ring-branding-orange focus:border-branding-orange text-white placeholder:text-gray-600 transition-all" placeholder="Descreva brevemente o desafio..." rows="4"></textarea>
+</div>
+<button class="w-full bg-branding-orange text-white py-4 rounded-full font-bold text-lg hover:scale-[1.02] transition-transform active:scale-95 shadow-lg shadow-branding-orange/20" type="submit">Enviar Diagnóstico</button>
+</form>
+</div>
+</section>
+<!-- Section 9: Footer (Shared Component Mapping) -->
+<footer class="bg-black border-t border-[#E85002]/20">
+<div class="w-full py-12 px-8 flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
+<div class="text-xl font-black text-white">ATLAS</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-body" href="#">Privacidade</a>
+<a class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-body" href="#">Termos de Uso</a>
+<a class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-body" href="#">LinkedIn</a>
+<a class="text-gray-500 hover:text-white transition-colors text-xs uppercase tracking-widest font-body" href="#">Instagram</a>
+</div>
+<p class="text-gray-500 text-xs uppercase tracking-widest font-body">© 2024 ATLAS. Todos os direitos reservados.</p>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</body></html>
