@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
+<html class="dark" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Atlas | Intelligent Automation &amp; AI Software</title>
+<title>Atlas | Automações e Softwares Sob Medida</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
 <!-- Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind -->
@@ -34,7 +34,7 @@
                     "full": "9999px"
             },
             "fontFamily": {
-                    "headline": ["Plus Jakarta Sans"],
+                    "headline": ["Manrope"],
                     "body": ["Inter"],
                     "label": ["Space Grotesk"]
             },
@@ -52,7 +52,7 @@
         },
       }
     </script>
-<style>
+    <style>
    
         body {
             /* Define a imagem de fundo */
@@ -71,7 +71,282 @@
             background-attachment: fixed;
         }
     
-        /*  */
+        .hero-reference-wrap {
+            max-width: 58rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.35rem 0.5rem 0.35rem 0.35rem;
+            border-radius: 999px;
+            background: rgba(23, 23, 23, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-badge-mark {
+            padding: 0.28rem 0.6rem;
+            border-radius: 999px;
+            color: #fff4ec;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(180deg, #ff922e 0%, #ff5a0c 62%, #b93a00 100%);
+            box-shadow: 0 0 18px rgba(255, 90, 12, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-badge-text {
+            color: rgba(255, 255, 255, 0.82);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding-right: 0.5rem;
+        }
+
+        .hero-title-ref {
+            max-width: 12ch;
+            margin: 1.9rem auto 0;
+            color: #f7f2ee;
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(3.8rem, 7vw, 6.2rem);
+            font-weight: 700;
+            line-height: 0.96;
+            letter-spacing: -0.07em;
+            text-wrap: balance;
+        }
+
+        .hero-subtitle-ref {
+            max-width: 38rem;
+            margin: 1.4rem auto 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1rem, 1.45vw, 1.35rem);
+            font-weight: 400;
+            line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .hero-buttons-ref {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-btn-orange,
+        .hero-btn-light {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 8.75rem;
+            padding: 0.95rem 1.65rem;
+            border-radius: 999px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .hero-btn-orange {
+            color: #fffaf6;
+            background:
+                radial-gradient(circle at 50% 20%, rgba(255, 197, 112, 0.4) 0%, rgba(255, 197, 112, 0) 36%),
+                linear-gradient(180deg, #ff9734 0%, #ff5f0d 58%, #b83a00 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                inset 0 -8px 16px rgba(101, 20, 0, 0.18),
+                0 14px 30px rgba(255, 88, 12, 0.22);
+        }
+
+        .hero-btn-light {
+            color: #101010;
+            background: linear-gradient(180deg, #ffffff 0%, #efebe7 100%);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                0 10px 24px rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-btn-orange:hover,
+        .hero-btn-light:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-logo-row {
+            margin-top: 2.4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo-atlas {
+            width: min(100%, 34rem);
+            max-height: 19rem;
+            object-fit: contain;
+            mix-blend-mode: screen;
+            filter: saturate(1.08) contrast(1.02) drop-shadow(0 0 30px rgba(255, 92, 18, 0.14));
+        }
+
+        .lead-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(14px);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+            z-index: 80;
+            overflow-y: auto;
+        }
+
+        .lead-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .lead-modal-card {
+            width: min(100%, 34rem);
+            max-height: min(90vh, 52rem);
+            border-radius: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, rgba(18, 18, 18, 0.96) 0%, rgba(10, 10, 10, 0.98) 100%);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .lead-modal-head {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.5rem 1.5rem 1rem;
+        }
+
+        .lead-modal-title {
+            color: #f7f2ee;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+
+        .lead-modal-copy {
+            margin-top: 0.5rem;
+            color: rgba(255, 255, 255, 0.66);
+            font-size: 0.98rem;
+            line-height: 1.5;
+        }
+
+        .lead-modal-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: #f5f5f5;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .lead-modal-close:hover {
+            transform: scale(1.04);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .lead-form {
+            padding: 0 1.5rem 1.5rem;
+            display: grid;
+            gap: 1rem;
+            max-height: calc(90vh - 8rem);
+            overflow-y: auto;
+        }
+
+        .lead-form label {
+            display: block;
+            margin-bottom: 0.45rem;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .lead-form input,
+        .lead-form textarea {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.04);
+            color: #f8f4f1;
+            padding: 0.95rem 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .lead-form input::placeholder,
+        .lead-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.28);
+        }
+
+        .lead-form input:focus,
+        .lead-form textarea:focus {
+            border-color: rgba(255, 95, 13, 0.7);
+            box-shadow: 0 0 0 3px rgba(255, 95, 13, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .lead-form textarea {
+            min-height: 8.5rem;
+            resize: vertical;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title-ref {
+                max-width: 10ch;
+                font-size: clamp(3rem, 12vw, 4.5rem);
+            }
+
+            .hero-subtitle-ref {
+                max-width: 24rem;
+            }
+
+            .hero-logo-atlas {
+                width: min(100%, 24rem);
+                max-height: 13rem;
+            }
+
+            .lead-modal {
+                align-items: flex-start;
+                padding: 1rem;
+            }
+
+            .lead-modal-card {
+                width: 100%;
+                max-height: none;
+                margin-top: 4.5rem;
+                border-radius: 1.4rem;
+            }
+
+            .lead-form {
+                max-height: none;
+            }
+        }
     </style>
 </head>
 <body class="font-body selection:bg-primary/30 selection:text-white">
@@ -82,47 +357,117 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 bg-stone-900/40 backdrop-blur-3xl rounded-full mt-6 mx-auto max-w-5xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5 tonal-transition">
 <div class="flex items-center gap-3">
-<img alt="Atlas Logo" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiuDhmtD5cO_l6K6pNtOUMPSFzXtNaqQl7g97N0xBVhexKNfm-vmlW66eZjH-dBsdtCoIF61ka-MJNRSnwowwOFFiFz0mzVYm7jlDGO-tSatcBysZlp_G20aLJdXEnHMzkrfKe7cUYxlgEFQ5y3sfW8yRjfPZrLO2TOkjZDGV7iEOUfJJyzR-wJeJESIGCeoTUDujXO4iPVgaLqnoClAwXCI2jzXTeD5jD5PpTdXryMPE8M2tLr1jBbH4OeTWi3_A8rN8S_5Yx6oy4"/>
-<span class="text-2xl font-bold text-stone-50 tracking-tighter font-headline">Atlas</span>
+<img alt="Atlas Logo" class="h-7 w-auto" src="image copy.png"/>
+
 </div>
 <div class="hidden md:flex items-center gap-8">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Systems</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Solutions</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">About</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Contact</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Início</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Soluções</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Como Atuamos</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Contato</a>
 </div>
-<button class="bg-primary text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20">
-            Request Demo
+<button class="bg-primary text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20" data-open-lead-modal="" type="button">
+            Agendar Diagnóstico
         </button>
 </nav>
 <main>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-24 px-6 md:px-12 bg-transparent">
-<div class="relative z-10 max-w-6xl mx-auto grid grid-cols-12 gap-6 items-center w-full">
-<div class="col-span-12 md:col-span-9">
-<span class="font-label text-primary tracking-[0.4em] uppercase text-xs mb-6 block font-bold">Intelligent Automation</span>
-<h1 class="text-6xl md:text-[5.5rem] font-headline font-extrabold leading-[1.05] tracking-tight text-stone-50 mb-8">
-                        Architecting the <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-stone-400">Autonomous Edge.</span>
-</h1>
-<p class="text-lg md:text-xl text-stone-300 max-w-2xl leading-relaxed mb-10 font-light tracking-wide">
-                        Atlas engineers proprietary AI-driven workflows and scalable software ecosystems that transform raw operational data into self-optimizing business intelligence.
-                    </p>
-<div class="flex flex-wrap gap-5">
-<button class="bg-primary px-8 py-4 rounded-full font-headline font-extrabold tracking-tight hover:scale-105 transition-all shadow-xl shadow-primary/30 text-white">
-                            Explore Solutions
-                        </button>
-<button class="border border-white/20 backdrop-blur-md px-8 py-4 rounded-full font-headline font-bold tracking-tight hover:bg-stone-50 hover:text-black transition-all">
-                            Technical Whitepaper
-                        </button>
+<div class="relative z-10 w-full">
+<div class="hero-reference-wrap">
+<div class="hero-badge">
+<span class="hero-badge-mark">Atlas</span>
+<span class="hero-badge-text">Tecnologia aplicada ao crescimento</span>
 </div>
+<h1 class="hero-title-ref">Menos operação manual. Mais escala e faturamento.</h1>
+<p class="hero-subtitle-ref">Criamos automações e softwares sob medida para reduzir gargalos, ganhar eficiência e acelerar o crescimento da sua empresa.</p>
+<div class="hero-buttons-ref">
+<button class="hero-btn-orange" data-open-lead-modal="" type="button">Falar com a Atlas</button>
+<button class="hero-btn-light">Ver Soluções</button>
+</div>
+<div class="hero-logo-row">
+<video autoplay="" class="hero-logo-atlas" loop="" muted="" playsinline="">
+<source src="./logo.webm" type="video/webm"/>
+</video>
+</div>
+</div>
+</div>
+</section>
+<!-- Quem Somos -->
+<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+<div class="md:col-span-4">
+<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">02 / QUEM SOMOS</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100 leading-tight">Uma assessoria de tecnologia orientada por resultado.</h2>
+</div>
+<div class="md:col-span-8 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
+<p class="text-stone-300 text-lg md:text-xl leading-relaxed mb-6">
+                        A Atlas atua como parceira estratégica de empresas que precisam ganhar eficiência, reduzir dependência de tarefas manuais e crescer com uma operação mais inteligente.
+                    </p>
+<p class="text-stone-400 leading-relaxed">
+                        Mais do que desenvolver sistemas, nós mergulhamos na operação do cliente para entender onde estão os gargalos, o desperdício de tempo e as oportunidades de escala. A partir disso, desenhamos e implementamos soluções que conectam tecnologia, automação e crescimento.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Como Trabalhamos -->
+<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
+<div class="mb-16">
+<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">03 / COMO TRABALHAMOS</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Diagnóstico, construção e evolução contínua.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+<span class="text-primary font-headline font-bold text-5xl mb-6 block">01</span>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Imersão na operação</h3>
+<p class="text-stone-400 leading-relaxed">Entendemos o cenário atual, mapeamos processos, identificamos gargalos e priorizamos os pontos com maior impacto no faturamento e na produtividade.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+<span class="text-primary font-headline font-bold text-5xl mb-6 block">02</span>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Desenho da solução</h3>
+<p class="text-stone-400 leading-relaxed">Estruturamos a melhor resposta para a dor do cliente, combinando automações, integrações, IA e softwares sob medida conforme a necessidade do negócio.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
+<span class="text-primary font-headline font-bold text-5xl mb-6 block">03</span>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Implementação e escala</h3>
+<p class="text-stone-400 leading-relaxed">Colocamos a solução em produção, acompanhamos resultados e evoluímos a operação para que o ganho inicial vire base real de crescimento.</p>
+</div>
+</div>
+</section>
+<!-- O Que Fazemos -->
+<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
+<div class="mb-16">
+<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">04 / O QUE FAZEMOS</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Soluções sob medida para destravar a operação.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="settings_suggest">settings_suggest</span>
+<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Automações inteligentes</h3>
+<p class="text-stone-400 leading-relaxed">Automatizamos processos repetitivos, tarefas operacionais e fluxos entre ferramentas para reduzir custo, erro e tempo desperdiçado.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="code_blocks">code_blocks</span>
+<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Softwares sob medida</h3>
+<p class="text-stone-400 leading-relaxed">Desenvolvemos sistemas personalizados para organizar operações, centralizar dados e apoiar decisões com mais velocidade e clareza.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="device_hub">device_hub</span>
+<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Integrações e orquestração</h3>
+<p class="text-stone-400 leading-relaxed">Conectamos CRM, ERP, financeiro, atendimento e outras ferramentas para que sua operação funcione como um sistema integrado, e não como ilhas separadas.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
+<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="monitoring">monitoring</span>
+<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Tecnologia para crescimento</h3>
+<p class="text-stone-400 leading-relaxed">Criamos estruturas tecnológicas que não apenas resolvem o problema de hoje, mas preparam a empresa para vender mais sem aumentar o caos operacional.</p>
 </div>
 </div>
 </section>
 <!-- Feature Capabilities -->
 <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
 <div class="flex flex-col mb-20">
-<span class="font-label text-stone-500 mb-2 font-bold tracking-widest">01 / CORE COMPETENCIES</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Engineered for Scale.</h2>
+<span class="font-label text-stone-500 mb-2 font-bold tracking-widest">01 / O QUE ENTREGAMOS</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Tecnologia pensada para resolver dores reais.</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 <!-- Large Feature: Process Automation -->
@@ -131,9 +476,9 @@
 <span class="material-symbols-outlined text-primary text-5xl" data-icon="settings_input_component">settings_input_component</span>
 </div>
 <div class="relative z-10">
-<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">Process Automation</h3>
+<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">Automação de Processos</h3>
 <p class="text-stone-400 max-w-md leading-relaxed text-lg">
-                            We deploy end-to-end robotic process automation that identifies bottlenecks and eliminates manual friction in real-time.
+                            Mapeamos gargalos operacionais e automatizamos fluxos manuais para reduzir retrabalho, acelerar entregas e liberar o time para atividades estratégicas.
                         </p>
 </div>
 </div>
@@ -141,26 +486,26 @@
 <div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 p-10 h-[500px] flex flex-col justify-between bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
 <span class="material-symbols-outlined text-primary text-5xl" data-icon="neurology">neurology</span>
 <div>
-<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">AI Integration</h3>
+<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">Integração de IA</h3>
 <p class="text-stone-400 font-medium leading-relaxed">
-                            Deep-learning models embedded directly into your core product stack for predictive user experiences.
+                            Aplicamos inteligência artificial onde ela realmente gera impacto: atendimento, análise, operação e tomada de decisão orientada por dados.
                         </p>
 </div>
 </div>
 <!-- Row 2 -->
 <div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 p-8 h-[400px] flex flex-col justify-between bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
 <span class="material-symbols-outlined text-primary text-5xl" data-icon="cloud_done">cloud_done</span>
-<h3 class="text-2xl font-headline font-bold text-stone-100">Scalable Software Architecture</h3>
+<h3 class="text-2xl font-headline font-bold text-stone-100">Softwares Sob Medida para Escala</h3>
 </div>
 <div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 p-8 h-[400px] flex items-center bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
 <div class="grid grid-cols-2 gap-8 w-full">
 <div>
 <span class="text-primary font-headline font-bold text-5xl mb-4 block">99.9%</span>
-<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Uptime Guaranteed</p>
+<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Processos Mais Estáveis</p>
 </div>
 <div>
 <span class="text-stone-100 font-headline font-bold text-5xl mb-4 block">1.2M+</span>
-<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Daily API Calls</p>
+<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Operações Orquestradas</p>
 </div>
 </div>
 </div>
@@ -171,10 +516,10 @@
 <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
 <div>
 <h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter mb-8 leading-tight text-stone-50">
-                        Workflows for <br/> <span class="italic font-light text-stone-400">Total Fluidity.</span>
+                        Soluções para <br/> <span class="italic font-light text-stone-400">crescer sem caos.</span>
 </h2>
 <p class="text-stone-400 text-lg mb-12 leading-relaxed">
-                        Conventional software is static. Atlas creates living code. Our AI-driven development methodology ensures that your systems evolve with your user base, preventing technical debt through automated refactoring and persistent testing.
+                        Cada negócio tem dores específicas. Por isso, nossa atuação combina diagnóstico, automação e desenvolvimento de software para construir operações mais enxutas, previsíveis e preparadas para vender mais.
                     </p>
 <div class="space-y-6">
 <div class="flex items-start gap-4 p-6 rounded-lg border border-white/5 bg-white/5 hover:border-primary/30 transition-all group">
@@ -182,8 +527,8 @@
 <span class="material-symbols-outlined text-primary" data-icon="terminal">terminal</span>
 </div>
 <div>
-<h4 class="font-headline font-bold mb-1 text-stone-100">Custom Dev Environments</h4>
-<p class="text-sm text-stone-500">Bespoke toolchains designed specifically for your engineering team's velocity.</p>
+<h4 class="font-headline font-bold mb-1 text-stone-100">Diagnóstico e Arquitetura</h4>
+<p class="text-sm text-stone-500">Analisamos a operação, priorizamos gargalos e desenhamos a solução ideal para o momento da sua empresa.</p>
 </div>
 </div>
 <div class="flex items-start gap-4 p-6 rounded-lg border border-white/5 bg-white/5 hover:border-primary/30 transition-all group">
@@ -191,8 +536,8 @@
 <span class="material-symbols-outlined text-primary" data-icon="data_exploration">data_exploration</span>
 </div>
 <div>
-<h4 class="font-headline font-bold mb-1 text-stone-100">Real-Time Observability</h4>
-<p class="text-sm text-stone-500">Autonomous monitoring that detects and resolves incidents before they impact users.</p>
+<h4 class="font-headline font-bold mb-1 text-stone-100">Implementação e Evolução</h4>
+<p class="text-sm text-stone-500">Entregamos automações e softwares que evoluem com a operação e acompanham o crescimento do negócio.</p>
 </div>
 </div>
 </div>
@@ -206,17 +551,49 @@
 <!-- CTA Section -->
 <section class="py-48 text-center px-6 bg-transparent">
 <div class="max-w-4xl mx-auto">
-<span class="font-label text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">Next Generation</span>
-<h2 class="text-6xl md:text-[5.5rem] font-headline font-extrabold tracking-tight mb-12 text-stone-50">Ready to automate?</h2>
+<span class="font-label text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">PRÓXIMO PASSO</span>
+<h2 class="text-6xl md:text-[5.5rem] font-headline font-extrabold tracking-tight mb-12 text-stone-50">Pronto para automatizar e escalar?</h2>
 <div class="inline-flex items-center gap-6">
-<a class="text-3xl md:text-5xl font-headline font-bold text-primary hover:text-white transition-colors flex items-center gap-4 group" href="#">
-                        Partner with Atlas 
+<a class="text-3xl md:text-5xl font-headline font-bold text-primary hover:text-white transition-colors flex items-center gap-4 group" data-open-lead-modal="" href="#">
+                        Fale com a Atlas 
                         <span class="material-symbols-outlined text-5xl md:text-7xl group-hover:translate-x-4 transition-transform" data-icon="arrow_forward">arrow_forward</span>
 </a>
 </div>
 </div>
 </section>
 </main>
+<div aria-hidden="true" class="lead-modal" id="lead-modal">
+<div aria-labelledby="lead-modal-title" aria-modal="true" class="lead-modal-card" role="dialog">
+<div class="lead-modal-head">
+<div>
+<h3 class="lead-modal-title" id="lead-modal-title">Fale com a Atlas</h3>
+<p class="lead-modal-copy">Preencha seus dados e conte qual é a principal dor do seu negócio. A partir disso, conseguimos entender como ajudar com automações e softwares sob medida.</p>
+</div>
+<button aria-label="Fechar formulário" class="lead-modal-close" data-close-lead-modal="" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="lead-form" id="lead-form">
+<div>
+<label for="lead-name">Nome</label>
+<input id="lead-name" name="name" placeholder="Como podemos te chamar?" required="" type="text"/>
+</div>
+<div>
+<label for="lead-email">E-mail</label>
+<input id="lead-email" name="email" placeholder="voce@empresa.com" required="" type="email"/>
+</div>
+<div>
+<label for="lead-phone">Telefone</label>
+<input id="lead-phone" name="phone" placeholder="(11) 99999-9999" required="" type="tel"/>
+</div>
+<div>
+<label for="lead-pain">Dor do negócio</label>
+<textarea id="lead-pain" name="pain" placeholder="Explique qual processo manual, gargalo ou desafio operacional você quer resolver." required=""></textarea>
+</div>
+<button class="hero-btn-orange" type="submit">Enviar para WhatsApp</button>
+</form>
+</div>
+</div>
 <!-- Footer -->
 <footer class="w-full py-24 px-12 grid grid-cols-2 md:grid-cols-4 gap-16 bg-transparent border-t border-white/10 font-label">
 <div class="col-span-2 md:col-span-1">
@@ -225,37 +602,37 @@
 <h4 class="text-xl font-black text-stone-100 font-headline tracking-tighter">Atlas.</h4>
 </div>
 <p class="text-stone-500 text-sm leading-loose max-w-xs mb-8 font-medium">
-                Pioneering the evolution of intelligent systems through autonomous engineering and AI-first development principles.
+                Criamos automações e softwares sob medida para eliminar tarefas manuais, organizar operações e transformar tecnologia em crescimento.
             </p>
 </div>
 <div>
-<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Navigation</h5>
+<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Navegação</h5>
 <ul class="space-y-4">
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Systems</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Solutions</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">About</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Contact</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Início</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Soluções</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Como Atuamos</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Contato</a></li>
 </ul>
 </div>
 <div>
-<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Platform</h5>
+<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Serviços</h5>
 <ul class="space-y-4">
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Documentation</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Process</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Security</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Integration</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Automação</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Softwares Sob Medida</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Integrações</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Consultoria Técnica</a></li>
 </ul>
 </div>
 <div>
-<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Connect</h5>
+<h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Conecte-se</h5>
 <ul class="space-y-4">
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Twitter / X</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Instagram</a></li>
 <li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">LinkedIn</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">GitHub</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">WhatsApp</a></li>
 </ul>
 </div>
 <div class="col-span-2 md:col-span-4 pt-16 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5">
-<span class="text-stone-600 text-[10px] uppercase tracking-[0.2em] font-bold">© 2024 Atlas Intelligent Systems. All Rights Reserved.</span>
+<span class="text-stone-600 text-[10px] uppercase tracking-[0.2em] font-bold">© 2024 Atlas. Todos os direitos reservados.</span>
 <div class="flex gap-8">
 <a class="text-stone-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="language">language</span></a>
 <a class="text-stone-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined" data-icon="shield">shield</span></a>
@@ -263,4 +640,182 @@
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        const leadModal = document.getElementById('lead-modal');
+        const leadModalCard = leadModal ? leadModal.querySelector('.lead-modal-card') : null;
+        const leadForm = document.getElementById('lead-form');
+        const openLeadModalButtons = document.querySelectorAll('[data-open-lead-modal]');
+        const closeLeadModalButton = document.querySelector('[data-close-lead-modal]');
+        const leadPhoneInput = document.getElementById('lead-phone');
+
+        function openLeadModal() {
+            if (!leadModal || !leadModalCard) return;
+            leadModal.classList.add('is-open');
+            leadModal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            if (window.gsap) {
+                gsap.fromTo(leadModalCard,
+                    { opacity: 0, y: 24, scale: 0.98 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.28, ease: 'power2.out' }
+                );
+            }
+        }
+
+        function closeLeadModal() {
+            if (!leadModal || !leadModalCard) return;
+            if (window.gsap) {
+                gsap.to(leadModalCard, {
+                    opacity: 0,
+                    y: 18,
+                    scale: 0.985,
+                    duration: 0.2,
+                    ease: 'power2.in',
+                    onComplete: function () {
+                        leadModal.classList.remove('is-open');
+                        leadModal.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = '';
+                    }
+                });
+                return;
+            }
+
+            leadModal.classList.remove('is-open');
+            leadModal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        openLeadModalButtons.forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                openLeadModal();
+            });
+        });
+
+        if (closeLeadModalButton) {
+            closeLeadModalButton.addEventListener('click', closeLeadModal);
+        }
+
+        if (leadModal) {
+            leadModal.addEventListener('click', function (event) {
+                if (event.target === leadModal) {
+                    closeLeadModal();
+                }
+            });
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && leadModal && leadModal.classList.contains('is-open')) {
+                closeLeadModal();
+            }
+        });
+
+        if (leadPhoneInput) {
+            leadPhoneInput.addEventListener('input', function (event) {
+                const digits = event.target.value.replace(/\D/g, '').slice(0, 11);
+
+                if (digits.length <= 2) {
+                    event.target.value = digits;
+                    return;
+                }
+
+                if (digits.length <= 7) {
+                    event.target.value = '(' + digits.slice(0, 2) + ') ' + digits.slice(2);
+                    return;
+                }
+
+                event.target.value = '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+            });
+        }
+
+        if (leadForm) {
+            leadForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(leadForm);
+                const name = String(formData.get('name') || '').trim();
+                const email = String(formData.get('email') || '').trim();
+                const phone = String(formData.get('phone') || '').trim();
+                const pain = String(formData.get('pain') || '').trim();
+
+                const message = [
+                    'Olá, Atlas!',
+                    '',
+                    'Novo diagnóstico solicitado',
+                    '',
+                    'Nome: ' + name,
+                    'E-mail: ' + email,
+                    'Telefone: ' + phone,
+                    'Dor do negócio: ' + pain
+                ].join('\n');
+
+                const whatsappUrl = 'https://wa.me/5512991015266?text=' + encodeURIComponent(message);
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+                closeLeadModal();
+            });
+        }
+
+        if (!window.gsap || !window.ScrollTrigger) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.set('.hero-badge, .hero-title-ref, .hero-subtitle-ref, .hero-buttons-ref, .hero-logo-row', {
+            opacity: 0,
+            y: 30
+        });
+
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        heroTl
+            .to('.hero-badge', { opacity: 1, y: 0, duration: 0.7 })
+            .to('.hero-title-ref', { opacity: 1, y: 0, duration: 0.9 }, '-=0.35')
+            .to('.hero-subtitle-ref', { opacity: 1, y: 0, duration: 0.8 }, '-=0.45')
+            .to('.hero-buttons-ref', { opacity: 1, y: 0, duration: 0.75 }, '-=0.35')
+            .to('.hero-logo-row', { opacity: 1, y: 0, duration: 1 }, '-=0.25');
+
+        gsap.to('.hero-logo-atlas', {
+            y: -10,
+            duration: 3.2,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+
+        gsap.utils.toArray('main > section').forEach(function (section) {
+            const targets = section.querySelectorAll('h2, h3, p, .rounded-xl, .group, .font-label');
+            if (!targets.length) return;
+
+            gsap.from(targets, {
+                opacity: 0,
+                y: 36,
+                duration: 0.85,
+                stagger: 0.08,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 78%'
+                }
+            });
+        });
+
+        gsap.utils.toArray('.rounded-xl.border, .group').forEach(function (card) {
+            card.addEventListener('mouseenter', function () {
+                gsap.to(card, {
+                    y: -6,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+
+            card.addEventListener('mouseleave', function () {
+                gsap.to(card, {
+                    y: 0,
+                    duration: 0.35,
+                    ease: 'power2.out'
+                });
+            });
+        });
+    });
+</script>
 </body></html>
