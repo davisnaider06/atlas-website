@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html class="dark" lang="pt-BR"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 <title>Atlas | Automações e Softwares Sob Medida</title>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -54,6 +55,13 @@
     </script>
     <style>
    
+                 
+
+        html {
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             /* Define a imagem de fundo */
             background-image: url('background.png');
@@ -186,6 +194,16 @@
         .hero-btn-orange:hover,
         .hero-btn-light:hover {
             transform: translateY(-2px);
+        }
+
+        .hero-btn-orange:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.12),
+                inset 0 -8px 16px rgba(101, 20, 0, 0.08),
+                0 8px 18px rgba(255, 88, 12, 0.12);
         }
 
         .hero-logo-row {
@@ -326,6 +344,12 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                width: calc(100% - 1.25rem);
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
             .hero-title-ref {
                 max-width: 10ch;
                 font-size: clamp(3rem, 12vw, 4.5rem);
@@ -355,6 +379,271 @@
             .lead-form {
                 max-height: none;
             }
+
+            .hero-buttons-ref {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .hero-btn-orange,
+            .hero-btn-light {
+                width: 100%;
+                max-width: 24rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* FORM STEPS */
+.form-step { display: none; }
+.form-step.active { display: block; animation: stepIn 0.35s ease forwards; }
+@keyframes stepIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.opt-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #e2e2e2;
+  font-size: 15px;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+}
+.opt-card:hover { border-color: rgba(232,80,2,0.45); background: rgba(232,80,2,0.06); }
+.opt-card.selected { border-color: #E85002; background: rgba(232,80,2,0.1); }
+
+.opt-dot {
+  width: 18px; height: 18px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s;
+}
+.opt-card.selected .opt-dot { border-color: #E85002; background: #E85002; }
+.opt-card.selected .opt-dot::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.progress-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+.progress-fill {
+  height: 100%;
+  background: #E85002;
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+.thank-you { display: none; animation: stepIn 0.5s ease forwards; }
+.thank-you.active { display: block; }
+
+        .diagnostic-shell {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diagnostic-shell::before {
+            content: '';
+            position: absolute;
+            inset: auto -12% -18% auto;
+            width: 22rem;
+            height: 22rem;
+            background: radial-gradient(circle, rgba(255, 73, 12, 0.16) 0%, rgba(255, 73, 12, 0) 70%);
+            pointer-events: none;
+        }
+
+        .diagnostic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.45rem 0.9rem 0.45rem 0.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .diagnostic-badge-mark {
+            padding: 0.28rem 0.6rem;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #ff922e 0%, #ff5a0c 62%, #b93a00 100%);
+            color: #fff7f2;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+        }
+
+        .diagnostic-form-card {
+            border-radius: 1.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, rgba(16, 16, 16, 0.92) 0%, rgba(8, 8, 8, 0.98) 100%);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.34);
+        }
+
+        .diagnostic-progress {
+            width: 100%;
+            height: 3px;
+            border-radius: 999px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .diagnostic-progress-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #ff7a1a 0%, #ff490c 100%);
+            transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .diagnostic-step {
+            display: none;
+        }
+
+        .diagnostic-step.active {
+            display: block;
+            animation: stepIn 0.35s ease forwards;
+        }
+
+        .diagnostic-option {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            width: 100%;
+            padding: 1rem 1.05rem;
+            text-align: left;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.18s ease;
+        }
+
+        .diagnostic-option:hover {
+            border-color: rgba(255, 73, 12, 0.42);
+            background: rgba(255, 73, 12, 0.08);
+            color: #fff;
+        }
+
+        .diagnostic-option.is-selected {
+            border-color: rgba(255, 73, 12, 0.75);
+            background: rgba(255, 73, 12, 0.13);
+            color: #fff;
+        }
+
+        .diagnostic-option-dot {
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 999px;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.18s ease;
+        }
+
+        .diagnostic-option.is-selected .diagnostic-option-dot {
+            border-color: #ff490c;
+            background: #ff490c;
+        }
+
+        .diagnostic-option.is-selected .diagnostic-option-dot::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            border-radius: 999px;
+            background: #000;
+        }
+
+        .diagnostic-field label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .diagnostic-field input,
+        .diagnostic-field textarea {
+            width: 100%;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff8f3;
+            padding: 0.95rem 1rem;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .diagnostic-field input::placeholder,
+        .diagnostic-field textarea::placeholder {
+            color: rgba(255, 255, 255, 0.24);
+        }
+
+        .diagnostic-field input:focus,
+        .diagnostic-field textarea:focus {
+            border-color: rgba(255, 95, 13, 0.72);
+            box-shadow: 0 0 0 3px rgba(255, 95, 13, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .diagnostic-error {
+            display: none;
+            margin-top: 0.45rem;
+            color: #ff6b6b;
+            font-size: 0.76rem;
+        }
+
+        .diagnostic-error.is-visible {
+            display: block;
+        }
+
+        .diagnostic-thankyou {
+            display: none;
+        }
+
+        .diagnostic-thankyou.active {
+            display: block;
+            animation: stepIn 0.45s ease forwards;
+        }
+
+        @media (max-width: 768px) {
+            .diagnostic-form-card {
+                border-radius: 1.4rem;
+            }
+
+            .diagnostic-option,
+            .diagnostic-field input,
+            .diagnostic-field textarea,
+            .lead-form input,
+            .lead-form textarea,
+            .hero-btn-orange,
+            .hero-btn-light,
+            .btn-back {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -366,18 +655,18 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 bg-stone-900/40 backdrop-blur-3xl rounded-full mt-6 mx-auto max-w-5xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5 tonal-transition">
 <div class="flex items-center gap-3">
-<img alt="Atlas Logo" class="h-7 w-auto" src="image copy.png"/>
+<img alt="Atlas Logo" class="h-7 w-auto" src="logo2.png"/>
 
 </div>
 <div class="hidden md:flex items-center gap-8">
 <a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Início</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Soluções</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Como Atuamos</a>
-<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#">Contato</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#diagnostico-gratuito">Diagnóstico</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#deliverables-section">Entregamos</a>
+<a class="text-stone-300 font-medium hover:text-stone-50 font-headline tracking-tight hover:scale-105 transition-transform duration-300" href="#diagnostico-gratuito">Contato</a>
 </div>
-<button class="bg-primary text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20" data-open-lead-modal="" type="button">
+<a class="bg-primary text-white px-6 py-2.5 rounded-full font-headline font-bold text-sm tracking-tight hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-primary/20 inline-flex items-center justify-center" href="#diagnostico-gratuito">
             Agendar Diagnóstico
-        </button>
+        </a>
 </nav>
 <main>
 <!-- Hero Section -->
@@ -388,11 +677,11 @@
 <span class="hero-badge-mark">Atlas</span>
 <span class="hero-badge-text">Tecnologia aplicada ao crescimento</span>
 </div>
-<h1 class="hero-title-ref">Menos <span class="hero-highlight">operação</span> manual. Mais <span class="hero-highlight">escala</span> e faturamento.</h1>
-<p class="hero-subtitle-ref">Criamos automações e softwares sob medida para reduzir gargalos, ganhar eficiência e acelerar o crescimento da sua empresa.</p>
+<h1 class="hero-title-ref">Menos <span class="hero-highlight">operação</span> manual.<br>Mais <span class="hero-highlight">controle</span> e previsibilidade.</h1></br>
+<p class="hero-subtitle-ref">Se você sente que a clínica perde paciente, depende demais do operacional e cresce sem visibilidade, comece pelo diagnóstico gratuito.</p>
 <div class="hero-buttons-ref">
-<button class="hero-btn-orange" data-open-lead-modal="" type="button">Falar com a Atlas</button>
-<button class="hero-btn-light">Ver Soluções</button>
+<a class="hero-btn-orange" href="#diagnostico-gratuito">Fazer diagnóstico gratuito</a>
+<a class="hero-btn-light" href="#deliverables-section">Ver o que entregamos</a>
 </div>
 <div class="hero-logo-row">
 <video autoplay="" class="hero-logo-atlas" loop="" muted="" playsinline="">
@@ -402,124 +691,260 @@
 </div>
 </div>
 </section>
-<!-- Quem Somos -->
-<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-<div class="md:col-span-4">
-<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">02 / QUEM SOMOS</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100 leading-tight">Uma assessoria de tecnologia orientada por resultado.</h2>
+<section class="py-16 px-6 md:px-12 max-w-7xl mx-auto bg-transparent" id="diagnostico-gratuito">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<div class="lg:col-span-4">
+<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">01 / DIAGNÓSTICO GRATUITO</span>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter mb-5 leading-[0.95] text-stone-50">O foco agora é entender se faz sentido conversar.</h2>
+<p class="text-stone-400 text-lg leading-relaxed mb-6 max-w-lg">Você responde 6 perguntas rápidas. Se houver fit, a Atlas recebe tudo no WhatsApp com contexto e entra em contato para conduzir o próximo passo.</p>
+<div class="space-y-3">
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-5">
+<p class="text-stone-100 font-headline font-bold mb-1">Qualifica antes da reunião</p>
+<p class="text-stone-500 leading-relaxed">Dor, momento, tentativa anterior, porte e contato em um só fluxo.</p>
 </div>
-<div class="md:col-span-8 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-<p class="text-stone-300 text-lg md:text-xl leading-relaxed mb-6">
-                        A Atlas atua como parceira estratégica de empresas que precisam ganhar eficiência, reduzir dependência de tarefas manuais e crescer com uma operação mais inteligente.
-                    </p>
-<p class="text-stone-400 leading-relaxed">
-                        Mais do que desenvolver sistemas, nós mergulhamos na operação do cliente para entender onde estão os gargalos, o desperdício de tempo e as oportunidades de escala. A partir disso, desenhamos e implementamos soluções que conectam tecnologia, automação e crescimento.
-                    </p>
-</div>
-</div>
-</section>
-<!-- Como Trabalhamos -->
-<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
-<div class="mb-16">
-<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">03 / COMO TRABALHAMOS</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Diagnóstico, construção e evolução contínua.</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-<span class="text-primary font-headline font-bold text-5xl mb-6 block">01</span>
-<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Imersão na operação</h3>
-<p class="text-stone-400 leading-relaxed">Entendemos o cenário atual, mapeamos processos, identificamos gargalos e priorizamos os pontos com maior impacto no faturamento e na produtividade.</p>
-</div>
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-<span class="text-primary font-headline font-bold text-5xl mb-6 block">02</span>
-<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Desenho da solução</h3>
-<p class="text-stone-400 leading-relaxed">Estruturamos a melhor resposta para a dor do cliente, combinando automações, integrações, IA e softwares sob medida conforme a necessidade do negócio.</p>
-</div>
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8">
-<span class="text-primary font-headline font-bold text-5xl mb-6 block">03</span>
-<h3 class="text-2xl font-headline font-bold text-stone-100 mb-4">Implementação e escala</h3>
-<p class="text-stone-400 leading-relaxed">Colocamos a solução em produção, acompanhamos resultados e evoluímos a operação para que o ganho inicial vire base real de crescimento.</p>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-5">
+<p class="text-stone-100 font-headline font-bold mb-1">Sem enrolação</p>
+<p class="text-stone-500 leading-relaxed">Menos navegação, menos leitura solta e mais intenção comercial.</p>
 </div>
 </div>
-</section>
-<!-- O Que Fazemos -->
-<section class="py-28 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
-<div class="mb-16">
-<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">04 / O QUE FAZEMOS</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Soluções sob medida para destravar a operação.</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="settings_suggest">settings_suggest</span>
-<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Automações inteligentes</h3>
-<p class="text-stone-400 leading-relaxed">Automatizamos processos repetitivos, tarefas operacionais e fluxos entre ferramentas para reduzir custo, erro e tempo desperdiçado.</p>
+<div class="lg:col-span-8">
+<div class="diagnostic-shell diagnostic-form-card p-6 md:p-10">
+<div class="flex items-center justify-between gap-4 mb-8">
+<div>
+<p class="text-stone-100 font-headline text-2xl md:text-3xl font-bold tracking-tight">Agendar diagnóstico</p>
+<p class="text-stone-500 mt-2">Preencha e envie direto para o WhatsApp da Atlas.</p>
 </div>
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="code_blocks">code_blocks</span>
-<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Softwares sob medida</h3>
-<p class="text-stone-400 leading-relaxed">Desenvolvemos sistemas personalizados para organizar operações, centralizar dados e apoiar decisões com mais velocidade e clareza.</p>
+<span class="text-primary font-label text-xs font-bold tracking-[0.3em] uppercase" id="diagnostic-progress-label">1 / 6</span>
 </div>
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="device_hub">device_hub</span>
-<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Integrações e orquestração</h3>
-<p class="text-stone-400 leading-relaxed">Conectamos CRM, ERP, financeiro, atendimento e outras ferramentas para que sua operação funcione como um sistema integrado, e não como ilhas separadas.</p>
+<div class="diagnostic-progress mb-8">
+<div class="diagnostic-progress-fill" id="diagnostic-progress-fill"></div>
 </div>
-<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10">
-<span class="material-symbols-outlined text-primary text-5xl mb-8" data-icon="monitoring">monitoring</span>
-<h3 class="text-3xl font-headline font-bold text-stone-100 mb-4">Tecnologia para crescimento</h3>
-<p class="text-stone-400 leading-relaxed">Criamos estruturas tecnológicas que não apenas resolvem o problema de hoje, mas preparam a empresa para vender mais sem aumentar o caos operacional.</p>
+<form id="diagnostic-form">
+<div class="diagnostic-step active" data-step="1">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o seu segmento?</h3>
+<p class="text-stone-500 mb-6">Selecione a opção mais próxima do seu negócio.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="segmento" data-value="Clínica odontológica" type="button"><span class="diagnostic-option-dot"></span><span>Clínica odontológica</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Clínica estética ou de saúde" type="button"><span class="diagnostic-option-dot"></span><span>Clínica estética ou de saúde</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Negócio de serviços" type="button"><span class="diagnostic-option-dot"></span><span>Negócio de serviços</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="E-commerce ou varejo" type="button"><span class="diagnostic-option-dot"></span><span>E-commerce ou varejo</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Outro" type="button"><span class="diagnostic-option-dot"></span><span>Outro</span></button>
+</div>
+<div class="flex justify-end mt-8">
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="2">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
+<p class="text-stone-500 mb-6">Escolha o que mais te tira o sono.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="dor" data-value="Perco clientes e não sei por quê" type="button"><span class="diagnostic-option-dot"></span><span>Perco clientes e não sei por quê</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Minha operação depende demais de mim" type="button"><span class="diagnostic-option-dot"></span><span>Minha operação depende demais de mim</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Não consigo captar de forma previsível" type="button"><span class="diagnostic-option-dot"></span><span>Não consigo captar de forma previsível</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Muita coisa manual, pouca automação" type="button"><span class="diagnostic-option-dot"></span><span>Muita coisa manual, pouca automação</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Não tenho visibilidade dos meus números" type="button"><span class="diagnostic-option-dot"></span><span>Não tenho visibilidade dos meus números</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="3">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
+<p class="text-stone-500 mb-6">Isso ajuda a entender o contexto da conversa.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="tentativa" data-value="Sim, contratei alguém mas não funcionou" type="button"><span class="diagnostic-option-dot"></span><span>Sim, contratei alguém mas não funcionou</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Tentei fazer por conta própria" type="button"><span class="diagnostic-option-dot"></span><span>Tentei fazer por conta própria</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Ainda não tentei nada" type="button"><span class="diagnostic-option-dot"></span><span>Ainda não tentei nada</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Tenho algo rodando mas precisa melhorar" type="button"><span class="diagnostic-option-dot"></span><span>Tenho algo rodando mas precisa melhorar</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="4">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Em qual momento você está?</h3>
+<p class="text-stone-500 mb-6">Isso define como vamos conduzir a conversa.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="momento" data-value="Quero resolver isso agora" type="button"><span class="diagnostic-option-dot"></span><span>Quero resolver isso agora</span></button>
+<button class="diagnostic-option" data-field="momento" data-value="Estou pesquisando, ainda avaliando" type="button"><span class="diagnostic-option-dot"></span><span>Estou pesquisando, ainda avaliando</span></button>
+<button class="diagnostic-option" data-field="momento" data-value="Só quero entender como funciona" type="button"><span class="diagnostic-option-dot"></span><span>Só quero entender como funciona</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="5">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
+<p class="text-stone-500 mb-6">Usado só para entender o contexto do negócio.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="faturamento" data-value="Até R$15k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Até R$15k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Entre R$15k e R$50k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Entre R$15k e R$50k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Entre R$50k e R$150k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Entre R$50k e R$150k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Acima de R$150k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Acima de R$150k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Prefiro não informar" type="button"><span class="diagnostic-option-dot"></span><span>Prefiro não informar</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="6">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
+<p class="text-stone-500 mb-6">Se fizer sentido pros dois lados, a Atlas te chama no WhatsApp.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div class="diagnostic-field">
+<label for="diagnostic-name">Seu nome</label>
+<input id="diagnostic-name" name="nome" placeholder="Como te chamamos?" type="text"/>
+</div>
+<div class="diagnostic-field">
+<label for="diagnostic-company">Nome da empresa</label>
+<input id="diagnostic-company" name="empresa" placeholder="Qual o negócio?" type="text"/>
+</div>
+</div>
+<div class="diagnostic-field mb-4">
+<label for="diagnostic-phone">WhatsApp</label>
+<input id="diagnostic-phone" name="telefone" placeholder="(11) 99999-9999" type="tel"/>
+<span class="diagnostic-error" id="diagnostic-phone-error">Número inválido. Informe DDD + número.</span>
+</div>
+<div class="diagnostic-field">
+<label for="diagnostic-notes">Quer adicionar algo? <span class="normal-case tracking-normal font-normal text-stone-600">(opcional)</span></label>
+<textarea id="diagnostic-notes" name="obs" placeholder="Contexto, dúvida ou qualquer coisa..." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
+<button class="hero-btn-orange" disabled id="diagnostic-submit" type="submit">Agendar diagnóstico</button>
+</div>
+</div>
+</form>
+<div class="diagnostic-thankyou text-center py-8" id="diagnostic-thankyou">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full border border-primary/30 bg-primary/10 flex items-center justify-center text-2xl text-primary">&#10003;</div>
+<p class="text-3xl font-headline font-bold text-stone-100 mb-3">Recebemos tudo.</p>
+<p class="text-stone-400 leading-relaxed max-w-md mx-auto">Vamos analisar suas respostas e, se fizer sentido pros dois lados, entramos em contato no seu WhatsApp para conduzir o próximo passo.</p>
+</div>
+</div>
 </div>
 </div>
 </section>
 <!-- Feature Capabilities -->
-<section class="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
+<section class="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-transparent" id="deliverables-section">
 <div class="flex flex-col mb-20">
-<span class="font-label text-stone-500 mb-2 font-bold tracking-widest">01 / O QUE ENTREGAMOS</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Tecnologia pensada para resolver dores reais.</h2>
+<span class="font-label text-stone-500 mb-2 font-bold tracking-widest">02 / O QUE ENTREGAMOS</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Controle operacional, visibilidade e automação que tiram a clínica do escuro.</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-<!-- Large Feature: Process Automation -->
-<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 p-10 h-[500px] flex flex-col justify-end bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
-<div class="absolute top-0 right-0 p-8">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="settings_input_component">settings_input_component</span>
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-10 md:p-12 min-h-[420px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<div class="flex items-start justify-between gap-6">
+<div class="max-w-3xl">
+<span class="font-label text-primary text-xs font-bold tracking-[0.35em] uppercase mb-5 block">Produto & proposta de valor</span>
+<h3 class="text-3xl md:text-4xl font-headline font-bold mb-5 text-stone-100 leading-tight">A Atlas não vende automação. Vende um sistema que devolve controle e previsibilidade para a operação da clínica.</h3>
+<p class="text-stone-400 leading-relaxed text-lg max-w-2xl">
+                            Automação é o meio. O que entregamos é organização do atendimento, visibilidade do funil e estrutura para o dono parar de apagar incêndio sem saber onde está perdendo paciente.
+                        </p>
 </div>
-<div class="relative z-10">
-<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">Automação de Processos</h3>
-<p class="text-stone-400 max-w-md leading-relaxed text-lg">
-                            Mapeamos gargalos operacionais e automatizamos fluxos manuais para reduzir retrabalho, acelerar entregas e liberar o time para atividades estratégicas.
+<span class="material-symbols-outlined text-primary text-5xl shrink-0" data-icon="insights">insights</span>
+</div>
+<div>
+<p class="text-stone-500 font-label uppercase tracking-[0.3em] text-xs font-bold mb-4">Resumo em uma frase</p>
+<p class="text-stone-200 text-xl md:text-2xl font-headline font-semibold max-w-3xl leading-relaxed">
+                            Organização + visibilidade + automação do que já existe na clínica, empacotado em um sistema que funciona sem o dono ficar em cima.
                         </p>
 </div>
 </div>
-<!-- Small Feature: AI Integration -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 p-10 h-[500px] flex flex-col justify-between bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="neurology">neurology</span>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 md:p-10 min-h-[420px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="tune">tune</span>
+<div class="space-y-5">
 <div>
-<h3 class="text-3xl font-headline font-bold mb-4 text-stone-100">Integração de IA</h3>
-<p class="text-stone-400 font-medium leading-relaxed">
-                            Aplicamos inteligência artificial onde ela realmente gera impacto: atendimento, análise, operação e tomada de decisão orientada por dados.
+<p class="text-stone-500 font-label uppercase tracking-[0.3em] text-xs font-bold mb-3">O que muda</p>
+<h3 class="text-3xl font-headline font-bold text-stone-100 leading-tight">A clínica deixa de operar na base da memória, da intuição e do improviso.</h3>
+</div>
+<div class="space-y-3">
+<div class="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
+<p class="text-stone-200 font-medium">Atendimento mais organizado</p>
+</div>
+<div class="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
+<p class="text-stone-200 font-medium">Decisão com dado, não no feeling</p>
+</div>
+<div class="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
+<p class="text-stone-200 font-medium">Crescimento sem contratar caos</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 md:p-10 min-h-[360px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<div>
+<p class="text-primary font-label uppercase tracking-[0.3em] text-xs font-bold mb-4">Camada 1</p>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-3">Estrutura de atendimento e follow-up</h3>
+<p class="text-stone-400 leading-relaxed">n8n + Evolution API + WhatsApp para automatizar confirmações de consulta, reativações de pacientes sumidos e respostas rápidas fora do horário.</p>
+</div>
+<div class="space-y-3 text-stone-300">
+<p>Confirmação automática de consulta</p>
+<p>Reativação de pacientes sumidos</p>
+<p>Sem depender da secretária lembrar tudo</p>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 md:p-10 min-h-[360px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<div>
+<p class="text-primary font-label uppercase tracking-[0.3em] text-xs font-bold mb-4">Camada 2</p>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-3">Visibilidade do funil</h3>
+<p class="text-stone-400 leading-relaxed">Google Sheets como CRM leve para mostrar quantas pessoas entram, quantas viram consulta e quantas somem no caminho.</p>
+</div>
+<div class="space-y-3 text-stone-300">
+<p>Leads, consultas e conversões em um lugar só</p>
+<p>A clínica deixa de operar no escuro</p>
+<p>Decisão orientada por dado</p>
+</div>
+</div>
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 md:p-10 min-h-[360px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<div>
+<p class="text-primary font-label uppercase tracking-[0.3em] text-xs font-bold mb-4">Camada 3</p>
+<h3 class="text-2xl font-headline font-bold text-stone-100 mb-3">Consultoria de processo</h3>
+<p class="text-stone-400 leading-relaxed">O diferencial competitivo da Atlas é entender o que está quebrando antes, durante e depois da automação.</p>
+</div>
+<div class="space-y-3 text-stone-300">
+<p>Diagnóstico do processo real da clínica</p>
+<p>Vai além de um freelancer que só instala bot</p>
+<p>Parceiro de negócio, não fornecedor</p>
+</div>
+</div>
+<div class="hidden md:col-span-12 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-8 md:p-10 backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
+<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+<div class="max-w-2xl">
+<p class="text-stone-500 font-label uppercase tracking-[0.3em] text-xs font-bold mb-3">Como isso resolve a dor e aumenta resultado</p>
+<h3 class="text-3xl font-headline font-bold text-stone-100">O ganho vem como consequência de um processo bem estruturado.</h3>
+</div>
+<p class="text-stone-400 max-w-xl leading-relaxed">A dor real do dono de clínica não é "preciso de tecnologia". É perder paciente sem perceber, ter furo de agenda, depender de indicação e não conseguir crescer sem contratar mais gente.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="rounded-xl border border-white/10 bg-black/20 p-6">
+<p class="text-stone-500 font-label uppercase tracking-[0.25em] text-xs font-bold mb-3">Paciente some após orçamento</p>
+<p class="text-stone-200 leading-relaxed">Follow-up automático no WhatsApp em 24h, 3 dias e 7 dias para aumentar a taxa de retorno de orçamentos.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-black/20 p-6">
+<p class="text-stone-500 font-label uppercase tracking-[0.25em] text-xs font-bold mb-3">Furo de agenda</p>
+<p class="text-stone-200 leading-relaxed">Confirmação automática 24h antes com link de cancelamento para reduzir faltas e deixar a agenda mais previsível.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-black/20 p-6">
+<p class="text-stone-500 font-label uppercase tracking-[0.25em] text-xs font-bold mb-3">Nenhuma visibilidade de resultado</p>
+<p class="text-stone-200 leading-relaxed">Dashboard simples com leads, conversões e agendamentos para o dono começar a decidir com dado, não com intuição.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-black/20 p-6">
+<p class="text-stone-500 font-label uppercase tracking-[0.25em] text-xs font-bold mb-3">Dependência de indicação</p>
+<p class="text-stone-200 leading-relaxed">Protocolo de pedir avaliação + reativação da base para criar um canal que funciona mesmo sem anunciar.</p>
+</div>
+</div>
+<div class="mt-8 rounded-xl border border-primary/20 bg-primary/10 p-6">
+<p class="text-stone-100 text-lg leading-relaxed">
+                            O resultado que a Atlas ajuda a gerar é consequência de processo estruturado, visibilidade e execução consistente. Nunca o contrário.
                         </p>
-</div>
-</div>
-<!-- Row 2 -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-white/10 p-8 h-[400px] flex flex-col justify-between bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
-<span class="material-symbols-outlined text-primary text-5xl" data-icon="cloud_done">cloud_done</span>
-<h3 class="text-2xl font-headline font-bold text-stone-100">Softwares Sob Medida para Escala</h3>
-</div>
-<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 p-8 h-[400px] flex items-center bg-transparent backdrop-blur-sm transition-all hover:border-primary/40">
-<div class="grid grid-cols-2 gap-8 w-full">
-<div>
-<span class="text-primary font-headline font-bold text-5xl mb-4 block">99.9%</span>
-<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Processos Mais Estáveis</p>
-</div>
-<div>
-<span class="text-stone-100 font-headline font-bold text-5xl mb-4 block">1.2M+</span>
-<p class="text-stone-500 font-label uppercase tracking-widest text-xs font-bold">Operações Orquestradas</p>
-</div>
 </div>
 </div>
 </div>
 </section>
+<div class="hidden">
 <!-- Technical Deep Dive -->
 <section class="py-32 bg-transparent">
 <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -557,19 +982,162 @@
 </div>
 </div>
 </section>
+<section class="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-transparent" id="diagnostico-gratuito-old">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+<div class="lg:col-span-5">
+<span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">05 / DIAGNÓSTICO GRATUITO</span>
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter mb-6 leading-[0.95] text-stone-50">Qualifique seu caso em poucos minutos.</h2>
+<p class="text-stone-400 text-lg leading-relaxed mb-8 max-w-xl">Esse formulário serve para entendermos se faz sentido conversar agora, qual é o tamanho da sua dor e como a Atlas pode entrar sem virar mais um projeto solto na operação.</p>
+<div class="diagnostic-badge mb-8">
+<span class="diagnostic-badge-mark">Atlas</span>
+<span>6 perguntas rápidas. Se fizer sentido, chamamos você no WhatsApp.</span>
+</div>
+<div class="space-y-4">
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
+<p class="text-stone-100 font-headline font-bold mb-2">O que acontece depois</p>
+<p class="text-stone-400 leading-relaxed">Você responde, recebemos tudo no seu WhatsApp com contexto e entramos em contato para conduzir a conversa já com clareza sobre momento, dor e potencial de projeto.</p>
+</div>
+<div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
+<p class="text-stone-100 font-headline font-bold mb-2">Para quem faz sentido</p>
+<p class="text-stone-400 leading-relaxed">Negócios que já sentem gargalo real na operação, no atendimento, no funil ou na previsibilidade comercial e querem organizar isso com tecnologia aplicada.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<div class="diagnostic-shell diagnostic-form-card p-6 md:p-10">
+<div class="flex items-center justify-between gap-4 mb-8">
+<div>
+<p class="text-stone-100 font-headline text-2xl md:text-3xl font-bold tracking-tight">Agendar diagnóstico</p>
+<p class="text-stone-500 mt-2">Responda e envie direto para o WhatsApp da Atlas.</p>
+</div>
+<span class="text-primary font-label text-xs font-bold tracking-[0.3em] uppercase" id="diagnostic-progress-label-old">1 / 6</span>
+</div>
+<div class="diagnostic-progress mb-8">
+<div class="diagnostic-progress-fill" id="diagnostic-progress-fill-old"></div>
+</div>
+<form id="diagnostic-form-old">
+<div class="diagnostic-step active" data-step="1">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o seu segmento?</h3>
+<p class="text-stone-500 mb-6">Selecione a opção mais próxima do seu negócio.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="segmento" data-value="Clínica odontológica" type="button"><span class="diagnostic-option-dot"></span><span>Clínica odontológica</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Clínica estética ou de saúde" type="button"><span class="diagnostic-option-dot"></span><span>Clínica estética ou de saúde</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Negócio de serviços" type="button"><span class="diagnostic-option-dot"></span><span>Negócio de serviços</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="E-commerce ou varejo" type="button"><span class="diagnostic-option-dot"></span><span>E-commerce ou varejo</span></button>
+<button class="diagnostic-option" data-field="segmento" data-value="Outro" type="button"><span class="diagnostic-option-dot"></span><span>Outro</span></button>
+</div>
+<div class="flex justify-end mt-8">
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="2">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
+<p class="text-stone-500 mb-6">Escolha o que mais te tira o sono.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="dor" data-value="Perco clientes e não sei por quê" type="button"><span class="diagnostic-option-dot"></span><span>Perco clientes e não sei por quê</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Minha operação depende demais de mim" type="button"><span class="diagnostic-option-dot"></span><span>Minha operação depende demais de mim</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Não consigo captar de forma previsível" type="button"><span class="diagnostic-option-dot"></span><span>Não consigo captar de forma previsível</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Muita coisa manual, pouca automação" type="button"><span class="diagnostic-option-dot"></span><span>Muita coisa manual, pouca automação</span></button>
+<button class="diagnostic-option" data-field="dor" data-value="Não tenho visibilidade dos meus números" type="button"><span class="diagnostic-option-dot"></span><span>Não tenho visibilidade dos meus números</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">← Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="3">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
+<p class="text-stone-500 mb-6">Isso ajuda a entender o contexto da conversa.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="tentativa" data-value="Sim, contratei alguém mas não funcionou" type="button"><span class="diagnostic-option-dot"></span><span>Sim, contratei alguém mas não funcionou</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Tentei fazer por conta própria" type="button"><span class="diagnostic-option-dot"></span><span>Tentei fazer por conta própria</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Ainda não tentei nada" type="button"><span class="diagnostic-option-dot"></span><span>Ainda não tentei nada</span></button>
+<button class="diagnostic-option" data-field="tentativa" data-value="Tenho algo rodando mas precisa melhorar" type="button"><span class="diagnostic-option-dot"></span><span>Tenho algo rodando mas precisa melhorar</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">← Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="4">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Em qual momento você está?</h3>
+<p class="text-stone-500 mb-6">Isso define como vamos conduzir a conversa.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="momento" data-value="Quero resolver isso agora" type="button"><span class="diagnostic-option-dot"></span><span>Quero resolver isso agora</span></button>
+<button class="diagnostic-option" data-field="momento" data-value="Estou pesquisando, ainda avaliando" type="button"><span class="diagnostic-option-dot"></span><span>Estou pesquisando, ainda avaliando</span></button>
+<button class="diagnostic-option" data-field="momento" data-value="Só quero entender como funciona" type="button"><span class="diagnostic-option-dot"></span><span>Só quero entender como funciona</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">← Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="5">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
+<p class="text-stone-500 mb-6">Usado só para entender o contexto do negócio.</p>
+<div class="space-y-3">
+<button class="diagnostic-option" data-field="faturamento" data-value="Até R$15k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Até R$15k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Entre R$15k e R$50k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Entre R$15k e R$50k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Entre R$50k e R$150k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Entre R$50k e R$150k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Acima de R$150k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Acima de R$150k/mês</span></button>
+<button class="diagnostic-option" data-field="faturamento" data-value="Prefiro não informar" type="button"><span class="diagnostic-option-dot"></span><span>Prefiro não informar</span></button>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">← Voltar</button>
+<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
+</div>
+</div>
+<div class="diagnostic-step" data-step="6">
+<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
+<p class="text-stone-500 mb-6">Se fizer sentido pros dois lados, a Atlas te chama no WhatsApp.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<div class="diagnostic-field">
+<label for="diagnostic-name">Seu nome</label>
+<input id="diagnostic-name-old" name="nome" placeholder="Como te chamamos?" type="text"/>
+</div>
+<div class="diagnostic-field">
+<label for="diagnostic-company">Nome da empresa</label>
+<input id="diagnostic-company-old" name="empresa" placeholder="Qual o negócio?" type="text"/>
+</div>
+</div>
+<div class="diagnostic-field mb-4">
+<label for="diagnostic-phone-old">WhatsApp</label>
+<input id="diagnostic-phone-old" name="telefone" placeholder="(11) 99999-9999" type="tel"/>
+<span class="diagnostic-error" id="diagnostic-phone-error-old">Número inválido. Informe DDD + número.</span>
+</div>
+<div class="diagnostic-field">
+<label for="diagnostic-notes-old">Quer adicionar algo? <span class="normal-case tracking-normal font-normal text-stone-600">(opcional)</span></label>
+<textarea id="diagnostic-notes-old" name="obs" placeholder="Contexto, dúvida ou qualquer coisa..." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-between mt-8 gap-4">
+<button class="btn-back" data-prev-step type="button">← Voltar</button>
+<button class="hero-btn-orange" disabled id="diagnostic-submit-old" type="submit">Agendar diagnóstico</button>
+</div>
+</div>
+</form>
+<div class="diagnostic-thankyou text-center py-8" id="diagnostic-thankyou-old">
+<div class="w-16 h-16 mx-auto mb-6 rounded-full border border-primary/30 bg-primary/10 flex items-center justify-center text-2xl text-primary">✓</div>
+<p class="text-3xl font-headline font-bold text-stone-100 mb-3">Recebemos tudo.</p>
+<p class="text-stone-400 leading-relaxed max-w-md mx-auto">Vamos analisar suas respostas e, se fizer sentido pros dois lados, entramos em contato no seu WhatsApp para conduzir o próximo passo.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <!-- CTA Section -->
 <section class="py-48 text-center px-6 bg-transparent">
 <div class="max-w-4xl mx-auto">
 <span class="font-label text-primary font-bold tracking-[0.5em] uppercase text-xs mb-8 block">PRÓXIMO PASSO</span>
 <h2 class="text-6xl md:text-[5.5rem] font-headline font-extrabold tracking-tight mb-12 text-stone-50">Pronto para automatizar e escalar?</h2>
 <div class="inline-flex items-center gap-6">
-<a class="text-3xl md:text-5xl font-headline font-bold text-primary hover:text-white transition-colors flex items-center gap-4 group" data-open-lead-modal="" href="#">
+<a class="text-3xl md:text-5xl font-headline font-bold text-primary hover:text-white transition-colors flex items-center gap-4 group" href="#diagnostico-gratuito">
                         Fale com a Atlas 
                         <span class="material-symbols-outlined text-5xl md:text-7xl group-hover:translate-x-4 transition-transform" data-icon="arrow_forward">arrow_forward</span>
 </a>
 </div>
 </div>
 </section>
+</div>
 </main>
 <div aria-hidden="true" class="lead-modal" id="lead-modal">
 <div aria-labelledby="lead-modal-title" aria-modal="true" class="lead-modal-card" role="dialog">
@@ -607,7 +1175,7 @@
 <footer class="w-full py-24 px-12 grid grid-cols-2 md:grid-cols-4 gap-16 bg-transparent border-t border-white/10 font-label">
 <div class="col-span-2 md:col-span-1">
 <div class="flex items-center gap-2 mb-8">
-<img alt="Atlas Logo" class="h-5 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiuDhmtD5cO_l6K6pNtOUMPSFzXtNaqQl7g97N0xBVhexKNfm-vmlW66eZjH-dBsdtCoIF61ka-MJNRSnwowwOFFiFz0mzVYm7jlDGO-tSatcBysZlp_G20aLJdXEnHMzkrfKe7cUYxlgEFQ5y3sfW8yRjfPZrLO2TOkjZDGV7iEOUfJJyzR-wJeJESIGCeoTUDujXO4iPVgaLqnoClAwXCI2jzXTeD5jD5PpTdXryMPE8M2tLr1jBbH4OeTWi3_A8rN8S_5Yx6oy4"/>
+<img alt="Atlas Logo" class="h-20 w-auto" src="logo.png"/>
 <h4 class="text-xl font-black text-stone-100 font-headline tracking-tighter">Atlas.</h4>
 </div>
 <p class="text-stone-500 text-sm leading-loose max-w-xs mb-8 font-medium">
@@ -653,6 +1221,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', function () {
+        const WHATSAPP_NUMBER = '5512991015266';
         const leadModal = document.getElementById('lead-modal');
         const leadModalCard = leadModal ? leadModal.querySelector('.lead-modal-card') : null;
         const leadForm = document.getElementById('lead-form');
@@ -760,10 +1329,164 @@
                     'Dor do negócio: ' + pain
                 ].join('\n');
 
-                const whatsappUrl = 'https://wa.me/5512991015266?text=' + encodeURIComponent(message);
+                const whatsappUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
                 window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
                 closeLeadModal();
             });
+        }
+
+        const diagnosticForm = document.getElementById('diagnostic-form');
+        const diagnosticThankyou = document.getElementById('diagnostic-thankyou');
+        const diagnosticProgressFill = document.getElementById('diagnostic-progress-fill');
+        const diagnosticProgressLabel = document.getElementById('diagnostic-progress-label');
+        const diagnosticSteps = diagnosticForm ? Array.from(diagnosticForm.querySelectorAll('.diagnostic-step')) : [];
+        const diagnosticSubmit = document.getElementById('diagnostic-submit');
+        const diagnosticPhone = document.getElementById('diagnostic-phone');
+        const diagnosticPhoneError = document.getElementById('diagnostic-phone-error');
+        const diagnosticName = document.getElementById('diagnostic-name');
+        const diagnosticCompany = document.getElementById('diagnostic-company');
+        const diagnosticNotes = document.getElementById('diagnostic-notes');
+        const diagnosticState = {};
+        let diagnosticCurrentStep = 1;
+        const diagnosticTotalSteps = 6;
+
+        function updateDiagnosticProgress() {
+            if (!diagnosticProgressFill || !diagnosticProgressLabel) return;
+            diagnosticProgressFill.style.width = (((diagnosticCurrentStep - 1) / diagnosticTotalSteps) * 100) + '%';
+            diagnosticProgressLabel.textContent = diagnosticCurrentStep + ' / ' + diagnosticTotalSteps;
+        }
+
+        function showDiagnosticStep(stepNumber) {
+            diagnosticCurrentStep = stepNumber;
+            diagnosticSteps.forEach(function (step) {
+                step.classList.toggle('active', Number(step.dataset.step) === stepNumber);
+            });
+            updateDiagnosticProgress();
+            const activeStep = diagnosticSteps.find(function (step) {
+                return Number(step.dataset.step) === stepNumber;
+            });
+            if (!activeStep) return;
+            const nextButton = activeStep.querySelector('[data-next-step]');
+            if (nextButton) {
+                const stepField = activeStep.querySelector('.diagnostic-option')?.dataset.field;
+                nextButton.disabled = !(stepField && diagnosticState[stepField]);
+            }
+            window.setTimeout(function () {
+                const section = document.getElementById('diagnostico-gratuito');
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 20);
+        }
+
+        function syncDiagnosticContactState() {
+            if (!diagnosticSubmit || !diagnosticPhone || !diagnosticName || !diagnosticCompany || !diagnosticPhoneError) return;
+            const rawPhone = diagnosticPhone.value.replace(/\D/g, '');
+            const phoneOk = rawPhone.length >= 10 && rawPhone.length <= 11;
+            diagnosticPhoneError.classList.toggle('is-visible', rawPhone.length > 0 && !phoneOk);
+            diagnosticSubmit.disabled = !(diagnosticName.value.trim().length >= 2 && diagnosticCompany.value.trim().length >= 2 && phoneOk);
+        }
+
+        if (diagnosticPhone) {
+            diagnosticPhone.addEventListener('input', function (event) {
+                const digits = event.target.value.replace(/\D/g, '').slice(0, 11);
+
+                if (digits.length <= 2) {
+                    event.target.value = digits;
+                    syncDiagnosticContactState();
+                    return;
+                }
+
+                if (digits.length <= 10) {
+                    event.target.value = '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 6) + (digits.length > 6 ? '-' + digits.slice(6) : '');
+                    syncDiagnosticContactState();
+                    return;
+                }
+
+                event.target.value = '(' + digits.slice(0, 2) + ') ' + digits.slice(2, 7) + '-' + digits.slice(7);
+                syncDiagnosticContactState();
+            });
+        }
+
+        [diagnosticName, diagnosticCompany].forEach(function (field) {
+            if (!field) return;
+            field.addEventListener('input', syncDiagnosticContactState);
+        });
+
+        if (diagnosticForm) {
+            diagnosticForm.querySelectorAll('.diagnostic-option').forEach(function (option) {
+                option.addEventListener('click', function () {
+                    const field = option.dataset.field;
+                    const value = option.dataset.value;
+                    if (!field) return;
+                    const step = option.closest('.diagnostic-step');
+                    if (!step) return;
+                    step.querySelectorAll('.diagnostic-option').forEach(function (item) {
+                        item.classList.remove('is-selected');
+                    });
+                    option.classList.add('is-selected');
+                    diagnosticState[field] = value;
+                    const nextButton = step.querySelector('[data-next-step]');
+                    if (nextButton) nextButton.disabled = false;
+                });
+            });
+
+            diagnosticForm.querySelectorAll('[data-next-step]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    if (diagnosticCurrentStep < diagnosticTotalSteps) {
+                        showDiagnosticStep(diagnosticCurrentStep + 1);
+                    }
+                });
+            });
+
+            diagnosticForm.querySelectorAll('[data-prev-step]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    if (diagnosticCurrentStep > 1) {
+                        showDiagnosticStep(diagnosticCurrentStep - 1);
+                    }
+                });
+            });
+
+            diagnosticForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                syncDiagnosticContactState();
+                if (diagnosticSubmit && diagnosticSubmit.disabled) return;
+
+                diagnosticState.nome = diagnosticName ? diagnosticName.value.trim() : '';
+                diagnosticState.empresa = diagnosticCompany ? diagnosticCompany.value.trim() : '';
+                diagnosticState.telefone = diagnosticPhone ? diagnosticPhone.value.trim() : '';
+                diagnosticState.observacoes = diagnosticNotes ? diagnosticNotes.value.trim() : '';
+
+                const message = [
+                    'Olá, Atlas!',
+                    '',
+                    'Novo diagnóstico gratuito solicitado',
+                    '',
+                    'Segmento: ' + (diagnosticState.segmento || '-'),
+                    'Maior dor: ' + (diagnosticState.dor || '-'),
+                    'Tentativa anterior: ' + (diagnosticState.tentativa || '-'),
+                    'Momento atual: ' + (diagnosticState.momento || '-'),
+                    'Faturamento: ' + (diagnosticState.faturamento || '-'),
+                    '',
+                    'Nome: ' + (diagnosticState.nome || '-'),
+                    'Empresa: ' + (diagnosticState.empresa || '-'),
+                    'WhatsApp: ' + (diagnosticState.telefone || '-'),
+                    'Observações: ' + (diagnosticState.observacoes || 'Nenhuma')
+                ].join('\n');
+
+                const whatsappUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+                window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+                diagnosticSteps.forEach(function (step) {
+                    step.classList.remove('active');
+                });
+                if (diagnosticProgressFill) diagnosticProgressFill.style.width = '100%';
+                if (diagnosticProgressLabel) diagnosticProgressLabel.textContent = '✓';
+                if (diagnosticThankyou) diagnosticThankyou.classList.add('active');
+            });
+
+            updateDiagnosticProgress();
+            syncDiagnosticContactState();
         }
 
         if (!window.gsap || !window.ScrollTrigger) return;
@@ -792,6 +1515,7 @@
         });
 
         gsap.utils.toArray('main > section').forEach(function (section) {
+            if (section.id === 'deliverables-section' || section.id === 'diagnostico-gratuito') return;
             const targets = section.querySelectorAll('h2, h3, p, .rounded-xl, .group, .font-label');
             if (!targets.length) return;
 
@@ -828,3 +1552,5 @@
     });
 </script>
 </body></html>
+
+
