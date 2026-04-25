@@ -731,9 +731,6 @@
 <button class="diagnostic-option" data-field="segmento" data-value="E-commerce ou varejo" type="button"><span class="diagnostic-option-dot"></span><span>E-commerce ou varejo</span></button>
 <button class="diagnostic-option" data-field="segmento" data-value="Outro" type="button"><span class="diagnostic-option-dot"></span><span>Outro</span></button>
 </div>
-<div class="flex justify-end mt-8">
-<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
-</div>
 </div>
 <div class="diagnostic-step" data-step="2">
 <h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
@@ -745,9 +742,8 @@
 <button class="diagnostic-option" data-field="dor" data-value="Muita coisa manual, pouca automação" type="button"><span class="diagnostic-option-dot"></span><span>Muita coisa manual, pouca automação</span></button>
 <button class="diagnostic-option" data-field="dor" data-value="Não tenho visibilidade dos meus números" type="button"><span class="diagnostic-option-dot"></span><span>Não tenho visibilidade dos meus números</span></button>
 </div>
-<div class="flex items-center justify-between mt-8 gap-4">
+<div class="flex items-center mt-8">
 <button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
-<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
 </div>
 </div>
 <div class="diagnostic-step" data-step="3">
@@ -759,9 +755,8 @@
 <button class="diagnostic-option" data-field="tentativa" data-value="Ainda não tentei nada" type="button"><span class="diagnostic-option-dot"></span><span>Ainda não tentei nada</span></button>
 <button class="diagnostic-option" data-field="tentativa" data-value="Tenho algo rodando mas precisa melhorar" type="button"><span class="diagnostic-option-dot"></span><span>Tenho algo rodando mas precisa melhorar</span></button>
 </div>
-<div class="flex items-center justify-between mt-8 gap-4">
+<div class="flex items-center mt-8">
 <button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
-<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
 </div>
 </div>
 <div class="diagnostic-step" data-step="4">
@@ -772,9 +767,8 @@
 <button class="diagnostic-option" data-field="momento" data-value="Estou pesquisando, ainda avaliando" type="button"><span class="diagnostic-option-dot"></span><span>Estou pesquisando, ainda avaliando</span></button>
 <button class="diagnostic-option" data-field="momento" data-value="Só quero entender como funciona" type="button"><span class="diagnostic-option-dot"></span><span>Só quero entender como funciona</span></button>
 </div>
-<div class="flex items-center justify-between mt-8 gap-4">
+<div class="flex items-center mt-8">
 <button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
-<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
 </div>
 </div>
 <div class="diagnostic-step" data-step="5">
@@ -787,9 +781,8 @@
 <button class="diagnostic-option" data-field="faturamento" data-value="Acima de R$150k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Acima de R$150k/mês</span></button>
 <button class="diagnostic-option" data-field="faturamento" data-value="Prefiro não informar" type="button"><span class="diagnostic-option-dot"></span><span>Prefiro não informar</span></button>
 </div>
-<div class="flex items-center justify-between mt-8 gap-4">
+<div class="flex items-center mt-8">
 <button class="btn-back" data-prev-step type="button">&larr; Voltar</button>
-<button class="hero-btn-orange" data-next-step disabled type="button">Continuar</button>
 </div>
 </div>
 <div class="diagnostic-step" data-step="6">
@@ -1186,9 +1179,6 @@
 <h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Navegação</h5>
 <ul class="space-y-4">
 <li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Início</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Soluções</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Como Atuamos</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Contato</a></li>
 </ul>
 </div>
 <div>
@@ -1203,9 +1193,7 @@
 <div>
 <h5 class="text-primary text-xs uppercase tracking-[0.3em] font-bold mb-8">Conecte-se</h5>
 <ul class="space-y-4">
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">Instagram</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">LinkedIn</a></li>
-<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="#">WhatsApp</a></li>
+<li><a class="text-stone-400 text-sm uppercase tracking-widest hover:text-primary transition-colors" href="">Instagram</a></li>
 </ul>
 </div>
 <div class="col-span-2 md:col-span-4 pt-16 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5">
@@ -1371,12 +1359,6 @@
                 const stepField = activeStep.querySelector('.diagnostic-option')?.dataset.field;
                 nextButton.disabled = !(stepField && diagnosticState[stepField]);
             }
-            window.setTimeout(function () {
-                const section = document.getElementById('diagnostico-gratuito');
-                if (section) {
-                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 20);
         }
 
         function syncDiagnosticContactState() {
@@ -1428,6 +1410,14 @@
                     diagnosticState[field] = value;
                     const nextButton = step.querySelector('[data-next-step]');
                     if (nextButton) nextButton.disabled = false;
+                    const stepNumber = Number(step.dataset.step);
+                    if (stepNumber && stepNumber < diagnosticTotalSteps) {
+                        window.setTimeout(function () {
+                            if (diagnosticCurrentStep === stepNumber) {
+                                showDiagnosticStep(stepNumber + 1);
+                            }
+                        }, 180);
+                    }
                 });
             });
 
