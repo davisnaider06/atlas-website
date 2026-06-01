@@ -17,6 +17,52 @@ const CRM_PUBLIC_LEAD_KEY = "atlas-leads-2026";
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   }
 
+  function openCrmFeedbackModal(opts) {
+    // opts: { success: boolean, message: string, whatsappText: string }
+    const modal = document.getElementById('crm-feedback-modal');
+    if (!modal) {
+      if (opts && opts.whatsappText) openWhatsApp(opts.whatsappText);
+      return;
+    }
+    const titleEl = document.getElementById('crm-feedback-title');
+    const msgEl = document.getElementById('crm-feedback-message');
+    const yesBtn = document.getElementById('crm-feedback-yes');
+    const noBtn = document.getElementById('crm-feedback-no');
+
+    titleEl.textContent = opts && opts.success ? 'Enviado ao CRM' : 'Falha ao enviar ao CRM';
+    msgEl.textContent = opts && opts.message ? opts.message : '';
+
+    function cleanup() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      yesBtn.removeEventListener('click', onYes);
+      noBtn.removeEventListener('click', onNo);
+    }
+
+    function onYes() {
+      cleanup();
+      if (opts && opts.whatsappText) openWhatsApp(opts.whatsappText);
+    }
+
+    function onNo() {
+      cleanup();
+    }
+
+    yesBtn.addEventListener('click', onYes);
+    noBtn.addEventListener('click', onNo);
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    modal.addEventListener('click', function handler(e) {
+      if (e.target === modal) { cleanup(); modal.removeEventListener('click', handler); }
+    });
+    document.addEventListener('keydown', function escHandler(e) {
+      if (e.key === 'Escape') { cleanup(); document.removeEventListener('keydown', escHandler); }
+    });
+  }
+
   async function sendLeadToCrm(payload) {
     const response = await fetch(CRM_API_URL + "/public/leads", {
       method: "POST",
@@ -125,8 +171,12 @@ const CRM_PUBLIC_LEAD_KEY = "atlas-leads-2026";
             whatsappDigits: onlyDigits(state.telefone)
           }
         });
-
-        openWhatsApp(message + "\n\nCRM Lead ID: " + result.leadId);
+        // Show CRM feedback modal and offer to also send via WhatsApp
+        openCrmFeedbackModal({
+          success: true,
+          message: 'Lead registrado no CRM. ID: ' + (result && result.leadId ? result.leadId : '-'),
+          whatsappText: message + "\n\nCRM Lead ID: " + (result && result.leadId ? result.leadId : '')
+        });
         steps.forEach(function (step) {
           step.classList.remove("active");
         });
@@ -135,8 +185,12 @@ const CRM_PUBLIC_LEAD_KEY = "atlas-leads-2026";
         if (thankyou) thankyou.classList.add("active");
       } catch (error) {
         console.error(error);
-        openWhatsApp(message + "\n\nObs: envio automatico ao CRM falhou no navegador.");
-        alert("Nao conseguimos registrar no CRM agora, mas abrimos o WhatsApp para continuar o atendimento.");
+        // On error, offer the user to send via WhatsApp manually
+        openCrmFeedbackModal({
+          success: false,
+          message: 'Não foi possível enviar ao CRM no momento.',
+          whatsappText: message + "\n\nObs: envio automatico ao CRM falhou no navegador."
+        });
       } finally {
         if (submit) {
           submit.disabled = false;
@@ -183,12 +237,20 @@ const CRM_PUBLIC_LEAD_KEY = "atlas-leads-2026";
             whatsappDigits: onlyDigits(data.phone)
           }
         });
-
-        openWhatsApp(message + "\n\nCRM Lead ID: " + result.leadId);
+        // Show CRM feedback modal and offer to also send via WhatsApp
+        openCrmFeedbackModal({
+          success: true,
+          message: 'Lead registrado no CRM. ID: ' + (result && result.leadId ? result.leadId : '-'),
+          whatsappText: message + "\n\nCRM Lead ID: " + (result && result.leadId ? result.leadId : '')
+        });
       } catch (error) {
         console.error(error);
-        openWhatsApp(message + "\n\nObs: envio automatico ao CRM falhou no navegador.");
-        alert("Nao conseguimos registrar no CRM agora, mas abrimos o WhatsApp para continuar o atendimento.");
+        // On failure, prompt user to open WhatsApp
+        openCrmFeedbackModal({
+          success: false,
+          message: 'Não foi possível enviar ao CRM no momento.',
+          whatsappText: message + "\n\nObs: envio automatico ao CRM falhou no navegador."
+        });
       } finally {
         if (submit) {
           submit.disabled = false;
