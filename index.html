@@ -6,16 +6,39 @@
   <link rel="shortcut icon" href="logo2.webp" type="image/webp">
 <title>Atlas | Automações e Softwares Sob Medida</title>
 <meta name="description" content="A Atlas estrutura a operação da sua clínica com automação, visibilidade e processo. Menos manual, mais controle e previsibilidade. Faça o diagnóstico gratuito."/>
-<!-- Fonts -->
+<!-- Fontes: carregamento pós-load para zero CLS -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/></noscript>
-<!-- Icons: carregamento não-bloqueante -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet" media="print" onload="this.media='all'"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet"/></noscript>
+<style>
+  @font-face {
+    font-family: 'ManropeFallback';
+    src: local('Arial');
+    ascent-override: 93%;
+    descent-override: 24%;
+    line-gap-override: 0%;
+    size-adjust: 105%;
+  }
+  @font-face {
+    font-family: 'InterFallback';
+    src: local('Arial');
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+    size-adjust: 107%;
+  }
+</style>
+<script>
+  window.addEventListener('load', function() {
+    var fonts = document.createElement('link');
+    fonts.rel = 'stylesheet';
+    fonts.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=optional';
+    document.head.appendChild(fonts);
+    var icons = document.createElement('link');
+    icons.rel = 'stylesheet';
+    icons.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block';
+    document.head.appendChild(icons);
+  });
+</script>
 <!-- Tailwind -->
 <link rel="preload" as="script" href="https://cdn.tailwindcss.com?plugins=forms,container-queries"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" defer></script>
@@ -107,7 +130,7 @@
             padding: 0.28rem 0.6rem;
             border-radius: 999px;
             color: #fff4ec;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Manrope', 'ManropeFallback', sans-serif;
             font-size: 0.68rem;
             font-weight: 700;
             line-height: 1;
@@ -117,7 +140,7 @@
 
         .hero-badge-text {
             color: rgba(255, 255, 255, 0.82);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'InterFallback', sans-serif;
             font-size: 0.95rem;
             font-weight: 500;
             padding-right: 0.5rem;
@@ -127,7 +150,7 @@
             max-width: 12ch;
             margin: 1.9rem auto 0;
             color: #f7f2ee;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Manrope', 'ManropeFallback', sans-serif;
             font-size: clamp(3.8rem, 7vw, 6.2rem);
             font-weight: 600;
             line-height: 1.02;
@@ -148,7 +171,7 @@
             max-width: 38rem;
             margin: 1.4rem auto 0;
             color: rgba(255, 255, 255, 0.7);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'InterFallback', sans-serif;
             font-size: clamp(1rem, 1.45vw, 1.35rem);
             font-weight: 400;
             line-height: 1.35;
@@ -172,7 +195,7 @@
             min-width: 8.75rem;
             padding: 0.95rem 1.65rem;
             border-radius: 999px;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Manrope', 'ManropeFallback', sans-serif;
             font-size: 1rem;
             font-weight: 700;
             line-height: 1;
@@ -272,7 +295,7 @@
 
         .lead-modal-title {
             color: #f7f2ee;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Manrope', 'ManropeFallback', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
             line-height: 1.05;
@@ -428,7 +451,7 @@
   transition: all 0.2s ease;
   color: #e2e2e2;
   font-size: 15px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'InterFallback', sans-serif;
   text-align: left;
 }
 .opt-card:hover { border-color: rgba(232,80,2,0.45); background: rgba(232,80,2,0.06); }
@@ -502,7 +525,7 @@
             border-radius: 999px;
             background: linear-gradient(180deg, #ff922e 0%, #ff5a0c 62%, #b93a00 100%);
             color: #fff7f2;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Manrope', 'ManropeFallback', sans-serif;
             font-size: 0.72rem;
             font-weight: 800;
         }
