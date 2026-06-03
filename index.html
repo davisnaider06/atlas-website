@@ -1,36 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="dark" lang="pt-BR"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
-  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="logo2.webp" type="image/webp">
 <title>Atlas | Automações e Softwares Sob Medida</title>
+<meta name="description" content="A Atlas estrutura a operação da sua clínica com automação, visibilidade e processo. Menos manual, mais controle e previsibilidade. Faça o diagnóstico gratuito."/>
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/></noscript>
+<!-- Icons: carregamento não-bloqueante -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet" media="print" onload="this.media='all'"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet"/></noscript>
 <!-- Tailwind -->
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1008500505083344');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script src="./atlas-crm-lead-capture.js"></script>
+<link rel="preload" as="script" href="https://cdn.tailwindcss.com?plugins=forms,container-queries"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries" defer></script>
+<script src="./atlas-crm-lead-capture.js" defer></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -82,7 +71,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 
         body {
             /* Define a imagem de fundo */
-            background-image: url('background.png');
+            background-image: url('background.webp');
             
             /* Evita que a imagem se repita */
             background-repeat: no-repeat;
@@ -140,8 +129,8 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
             color: #f7f2ee;
             font-family: 'Manrope', sans-serif;
             font-size: clamp(3.8rem, 7vw, 6.2rem);
-            font-weight: 700;
-            line-height: 0.96;
+            font-weight: 600;
+            line-height: 1.02;
             letter-spacing: -0.07em;
             text-wrap: balance;
         }
@@ -361,6 +350,13 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
             resize: vertical;
         }
 
+
+        .mobile-only-img { display: none; }
+        .desktop-only-video { display: block; }
+        @media (max-width: 768px) {
+            .mobile-only-img { display: block; }
+            .desktop-only-video { display: none; }
+        }
         @media (max-width: 768px) {
             nav {
                 width: calc(100% - 1.25rem);
@@ -673,7 +669,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <!-- TopNavBar -->
 <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 bg-stone-900/40 backdrop-blur-3xl rounded-full mt-6 mx-auto max-w-5xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5 tonal-transition">
 <div class="flex items-center gap-3">
-<img alt="Atlas Logo" class="h-7 w-auto" src="logo2.png"/>
+<img alt="Atlas Logo" class="h-7 w-auto" src="logo2.webp"/>
 
 </div>
 <div class="hidden md:flex items-center gap-8">
@@ -702,7 +698,10 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <a class="hero-btn-light" href="#deliverables-section">Ver o que entregamos</a>
 </div>
 <div class="hero-logo-row">
-<video autoplay="" class="hero-logo-atlas" loop="" muted="" playsinline="">
+<!-- Mobile: imagem estática (não carrega vídeo pesado) -->
+<img src="logo2.webp" alt="Atlas" class="hero-logo-atlas mobile-only-img" width="320" height="200" loading="lazy"/>
+<!-- Desktop: vídeo animado -->
+<video autoplay="" class="hero-logo-atlas desktop-only-video" loop="" muted="" playsinline="" preload="none">
 <source src="./logo.webm" type="video/webm"/>
 </video>
 </div>
@@ -713,7 +712,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 <div class="lg:col-span-4">
 <span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">01 / DIAGNÓSTICO GRATUITO</span>
-<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter mb-5 leading-[0.95] text-stone-50">O foco agora é entender se faz sentido conversar.</h2>
+<h2 class="text-4xl md:text-5xl font-headline font-semibold tracking-tight mb-5 leading-[1.05] text-stone-50">O foco agora é entender se faz sentido conversar.</h2>
 <p class="text-stone-400 text-lg leading-relaxed mb-6 max-w-lg">Você responde 6 perguntas rápidas. Se houver fit, a Atlas recebe tudo no WhatsApp com contexto e entra em contato para conduzir o próximo passo.</p>
 <div class="space-y-3">
 <div class="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-5">
@@ -730,7 +729,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <div class="diagnostic-shell diagnostic-form-card p-6 md:p-10">
 <div class="flex items-center justify-between gap-4 mb-8">
 <div>
-<p class="text-stone-100 font-headline text-2xl md:text-3xl font-bold tracking-tight">Agendar diagnóstico</p>
+<p class="text-stone-100 font-headline text-2xl md:text-3xl font-semibold tracking-normal">Agendar diagnóstico</p>
 <p class="text-stone-500 mt-2">Preencha e envie direto para o WhatsApp da Atlas.</p>
 </div>
 <span class="text-primary font-label text-xs font-bold tracking-[0.3em] uppercase" id="diagnostic-progress-label">1 / 6</span>
@@ -740,7 +739,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 <form id="diagnostic-form">
 <div class="diagnostic-step active" data-step="1">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o seu segmento?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Qual é o seu segmento?</h3>
 <p class="text-stone-500 mb-6">Selecione a opção mais próxima do seu negócio.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="segmento" data-value="Clínica odontológica" type="button"><span class="diagnostic-option-dot"></span><span>Clínica odontológica</span></button>
@@ -751,7 +750,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="2">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
 <p class="text-stone-500 mb-6">Escolha o que mais te tira o sono.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="dor" data-value="Perco clientes e não sei por quê" type="button"><span class="diagnostic-option-dot"></span><span>Perco clientes e não sei por quê</span></button>
@@ -765,7 +764,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="3">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
 <p class="text-stone-500 mb-6">Isso ajuda a entender o contexto da conversa.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="tentativa" data-value="Sim, contratei alguém mas não funcionou" type="button"><span class="diagnostic-option-dot"></span><span>Sim, contratei alguém mas não funcionou</span></button>
@@ -778,7 +777,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="4">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Em qual momento você está?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Em qual momento você está?</h3>
 <p class="text-stone-500 mb-6">Isso define como vamos conduzir a conversa.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="momento" data-value="Quero resolver isso agora" type="button"><span class="diagnostic-option-dot"></span><span>Quero resolver isso agora</span></button>
@@ -790,7 +789,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="5">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
 <p class="text-stone-500 mb-6">Usado só para entender o contexto do negócio.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="faturamento" data-value="Até R$15k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Até R$15k/mês</span></button>
@@ -804,7 +803,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="6">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
 <p class="text-stone-500 mb-6">Se fizer sentido pros dois lados, a Atlas te chama no WhatsApp.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 <div class="diagnostic-field">
@@ -844,14 +843,14 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto bg-transparent" id="deliverables-section">
 <div class="flex flex-col mb-20">
 <span class="font-label text-stone-500 mb-2 font-bold tracking-widest">02 / O QUE ENTREGAMOS</span>
-<h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-stone-100">Controle operacional, visibilidade e automação que tiram a clínica do escuro.</h2>
+<h2 class="text-4xl md:text-5xl font-headline font-semibold tracking-tight text-stone-100">Controle operacional, visibilidade e automação que tiram a clínica do escuro.</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 <div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-10 md:p-12 min-h-[420px] flex flex-col justify-between backdrop-blur-sm transition-all hover:border-primary/40 shadow-[0_24px_60px_rgba(0,0,0,0.22)]">
 <div class="flex items-start justify-between gap-6">
 <div class="max-w-3xl">
 <span class="font-label text-primary text-xs font-bold tracking-[0.35em] uppercase mb-5 block">Produto & proposta de valor</span>
-<h3 class="text-3xl md:text-4xl font-headline font-bold mb-5 text-stone-100 leading-tight">A Atlas não vende automação. Vende um sistema que devolve controle e previsibilidade para a operação da clínica.</h3>
+<h3 class="text-3xl md:text-4xl font-headline font-semibold mb-5 text-stone-100 leading-snug">A Atlas não vende automação. Vende um sistema que devolve controle e previsibilidade para a operação da clínica.</h3>
 <p class="text-stone-400 leading-relaxed text-lg max-w-2xl">
                             Automação é o meio. O que entregamos é organização do atendimento, visibilidade do funil e estrutura para o dono parar de apagar incêndio sem saber onde está perdendo paciente.
                         </p>
@@ -870,7 +869,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <div class="space-y-5">
 <div>
 <p class="text-stone-500 font-label uppercase tracking-[0.3em] text-xs font-bold mb-3">O que muda</p>
-<h3 class="text-3xl font-headline font-bold text-stone-100 leading-tight">A clínica deixa de operar na base da memória, da intuição e do improviso.</h3>
+<h3 class="text-3xl font-headline font-semibold text-stone-100 leading-snug">A clínica deixa de operar na base da memória, da intuição e do improviso.</h3>
 </div>
 <div class="space-y-3">
 <div class="rounded-lg border border-white/10 bg-black/20 px-4 py-3">
@@ -997,7 +996,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 <div class="lg:col-span-5">
 <span class="font-label text-stone-500 mb-3 block font-bold tracking-widest">05 / DIAGNÓSTICO GRATUITO</span>
-<h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tighter mb-6 leading-[0.95] text-stone-50">Qualifique seu caso em poucos minutos.</h2>
+<h2 class="text-4xl md:text-6xl font-headline font-semibold tracking-tight mb-6 leading-[1.05] text-stone-50">Qualifique seu caso em poucos minutos.</h2>
 <p class="text-stone-400 text-lg leading-relaxed mb-8 max-w-xl">Esse formulário serve para entendermos se faz sentido conversar agora, qual é o tamanho da sua dor e como a Atlas pode entrar sem virar mais um projeto solto na operação.</p>
 <div class="diagnostic-badge mb-8">
 <span class="diagnostic-badge-mark">Atlas</span>
@@ -1018,7 +1017,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 <div class="diagnostic-shell diagnostic-form-card p-6 md:p-10">
 <div class="flex items-center justify-between gap-4 mb-8">
 <div>
-<p class="text-stone-100 font-headline text-2xl md:text-3xl font-bold tracking-tight">Agendar diagnóstico</p>
+<p class="text-stone-100 font-headline text-2xl md:text-3xl font-semibold tracking-normal">Agendar diagnóstico</p>
 <p class="text-stone-500 mt-2">Responda e envie direto para o WhatsApp da Atlas.</p>
 </div>
 <span class="text-primary font-label text-xs font-bold tracking-[0.3em] uppercase" id="diagnostic-progress-label-old">1 / 6</span>
@@ -1028,7 +1027,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 <form id="diagnostic-form-old">
 <div class="diagnostic-step active" data-step="1">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o seu segmento?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Qual é o seu segmento?</h3>
 <p class="text-stone-500 mb-6">Selecione a opção mais próxima do seu negócio.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="segmento" data-value="Clínica odontológica" type="button"><span class="diagnostic-option-dot"></span><span>Clínica odontológica</span></button>
@@ -1042,7 +1041,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="2">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Qual é o maior problema no seu negócio hoje?</h3>
 <p class="text-stone-500 mb-6">Escolha o que mais te tira o sono.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="dor" data-value="Perco clientes e não sei por quê" type="button"><span class="diagnostic-option-dot"></span><span>Perco clientes e não sei por quê</span></button>
@@ -1057,7 +1056,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="3">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Já tentou resolver isso antes?</h3>
 <p class="text-stone-500 mb-6">Isso ajuda a entender o contexto da conversa.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="tentativa" data-value="Sim, contratei alguém mas não funcionou" type="button"><span class="diagnostic-option-dot"></span><span>Sim, contratei alguém mas não funcionou</span></button>
@@ -1071,7 +1070,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="4">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Em qual momento você está?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Em qual momento você está?</h3>
 <p class="text-stone-500 mb-6">Isso define como vamos conduzir a conversa.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="momento" data-value="Quero resolver isso agora" type="button"><span class="diagnostic-option-dot"></span><span>Quero resolver isso agora</span></button>
@@ -1084,7 +1083,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="5">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Faturamento mensal aproximado?</h3>
 <p class="text-stone-500 mb-6">Usado só para entender o contexto do negócio.</p>
 <div class="space-y-3">
 <button class="diagnostic-option" data-field="faturamento" data-value="Até R$15k/mês" type="button"><span class="diagnostic-option-dot"></span><span>Até R$15k/mês</span></button>
@@ -1099,7 +1098,7 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 <div class="diagnostic-step" data-step="6">
-<h3 class="text-2xl md:text-3xl font-headline font-bold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
+<h3 class="text-2xl md:text-3xl font-headline font-semibold text-stone-100 mb-2">Quase lá. Só precisamos de você.</h3>
 <p class="text-stone-500 mb-6">Se fizer sentido pros dois lados, a Atlas te chama no WhatsApp.</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
 <div class="diagnostic-field">
@@ -1182,25 +1181,11 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </form>
 </div>
 </div>
-<div aria-hidden="true" class="lead-modal" id="crm-feedback-modal">
-    <div aria-labelledby="crm-feedback-title" aria-modal="true" class="lead-modal-card" role="dialog">
-        <div class="lead-modal-head">
-            <div>
-                <h3 class="lead-modal-title" id="crm-feedback-title">Status</h3>
-                <p class="lead-modal-copy" id="crm-feedback-message">&nbsp;</p>
-            </div>
-        </div>
-        <div class="lead-form" style="display:flex;justify-content:flex-end;gap:0.75rem;padding:1rem;">
-            <button aria-label="Não" class="lead-modal-close hero-btn-light" id="crm-feedback-no" type="button">Não</button>
-            <button aria-label="Sim" class="hero-btn-orange" id="crm-feedback-yes" type="button">Sim</button>
-        </div>
-    </div>
-</div>
 <!-- Footer -->
 <footer class="w-full py-24 px-12 grid grid-cols-2 md:grid-cols-4 gap-16 bg-transparent border-t border-white/10 font-label">
 <div class="col-span-2 md:col-span-1">
 <div class="flex items-center gap-2 mb-8">
-<img alt="Atlas Logo" class="h-20 w-auto" src="logo.png"/>
+<img alt="Atlas Logo" class="h-20 w-auto" src="logo.webp"/>
 <h4 class="text-xl font-black text-stone-100 font-headline tracking-tighter">Atlas.</h4>
 </div>
 <p class="text-stone-500 text-sm leading-loose max-w-xs mb-8 font-medium">
@@ -1237,8 +1222,8 @@ src="https://www.facebook.com/tr?id=1008500505083344&ev=PageView&noscript=1"
 </div>
 </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
 <script>
     window.addEventListener('DOMContentLoaded', function () {
         const WHATSAPP_NUMBER = '5512991015266';
